@@ -5,7 +5,7 @@
     <div class="btn-controls">
         <div class="btn-box-row row-fluid" >
             <button class="btn-box span12" style="background: #00cc00; ">
-                <b style="color:#fff">CHMSC Library Management System</b>
+                <b style="color:#fff">DIU Library Management System</b>
             </button>
         </div>
 

@@ -6,7 +6,7 @@
 			
 
 			</a>
-			  <a class="brand" href="{{ URL::route('home') }}" style="color:#fff">CHMSC LIBRARY SYSTEM </a> <marquee class="brand" style="color:#fff"  behavior="" direction="">WELCOME TO CHMSC LIBRARY MANAGEMENT SYSTEM</marquee>
+			  <a class="brand" href="{{ URL::route('home') }}" style="color:#fff">DIU Library</a> <marquee class="brand" style="color:#fff"  behavior="" direction="">WELCOME TO DIU LIBRARY MANAGEMENT SYSTEM</marquee>
 
 			 
 		</div>

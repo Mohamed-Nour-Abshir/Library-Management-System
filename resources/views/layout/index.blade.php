@@ -12,7 +12,7 @@
     <link rel="image_src" href="" />
     <link rel="canonical" href="" />
 
-    <title>CHSMC Library Management System</title>
+    <title>DIU Library Management System</title>
 
     <link type="text/css" href="{{asset('static/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
     <link type="text/css" href="{{asset('static/bootstrap/css/bootstrap-responsive.min.css') }}" rel="stylesheet">

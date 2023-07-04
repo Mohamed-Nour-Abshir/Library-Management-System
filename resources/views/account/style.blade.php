@@ -1,6 +1,6 @@
 <style>
 	.wrapper{
-		background-image: url({{  asset("images/library.jpg")}});
+		background-image: url({{  asset("images/library2.jpg")}});
 		background-color: #cccccc;
 		height: 500px;
 		background-position: center;
