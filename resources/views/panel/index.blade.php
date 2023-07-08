@@ -4,8 +4,8 @@
 <div class="content">
     <div class="btn-controls">
         <div class="btn-box-row row-fluid" >
-            <button class="btn-box span12" style="background: #00cc00; ">
-                <b style="color:#fff">DIU Library Management System</b>
+            <button class="btn-box span12" style="background: #000; ">
+                <b style="color:#fff">DIU Library Dashboard</b>
             </button>
         </div>
 

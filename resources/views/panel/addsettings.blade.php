@@ -15,7 +15,7 @@
         </div>
         <div class="row">
             <div class="module-body column">
-                <h2 style="text-align:center; font-family:'Times New Roman', Times, serif">School Branches</h2>
+                <h2 style="text-align:center; font-family:'Times New Roman', Times, serif">DIU Branches</h2>
                 <form class="form-horizontal row-fluid">
                    
                     <div class="control-group">
@@ -90,25 +90,25 @@
 
             </div>
             <div class="module-body column">
-                <h2 style="text-align:center; font-family:'Times New Roman', Times, serif">Student Categories</h2>
+                <h2 style="text-align:center; font-family:'Times New Roman', Times, serif">University Departments</h2>
                 <form class="form-horizontal row-fluid">
                     <div class="control-group">
-                        <label class="control-label">Student Category</label>
+                        <label class="control-label">Department Name</label>
                         <div class="controls">
-                            <input type="text" id="student_category" data-form-field="student_category" placeholder="Enter the category of the book here..." class="span12">
+                            <input type="text" id="student_category" data-form-field="student_category" placeholder="Enter the department here..." class="span12">
                             <input type="hidden"  data-form-field="token"  value="{{ csrf_token() }}">
                         </div>
                     </div>
                     <div class="control-group">
-                        <label class="control-label">Max Allow</label>
+                        <label class="control-label">Max Allowed Students</label>
                         <div class="controls">
-                            <input type="number" id="max_allow" data-form-field="max_allowed" placeholder="Enter the max allow value" class="span12">
+                            <input type="number" id="max_allow" data-form-field="max_allowed" placeholder="Enter the max allow students" class="span12">
                         </div>
                     </div>
     
                     <div class="control-group">
                         <div class="controls">
-                            <button type="button" class="btn btn-inverse" id="addStudentCategory">Add Student Category</button>
+                            <button type="button" class="btn btn-inverse" id="addStudentCategory">Add department</button>
                         </div>
                     </div>
                 </form>
@@ -117,7 +117,7 @@
                     <thead>
                       <tr>
                         <th scope="col">#</th>
-                        <th scope="col">Category</th>
+                        <th scope="col">Department</th>
                         <th scope="col">Max Allowed</th>
                         <th scope="col">Action</th>
 
@@ -142,14 +142,14 @@
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
-                            <h5 class="modal-title" id="exampleModalLabel">Delete Student Category</h5>
+                            <h5 class="modal-title" id="exampleModalLabel">Delete Department</h5>
                             
                             </div>
                             <div class="modal-body">
                                 <form action="{{ route('student.destroy', $student_category->cat_id) }}" method="Post">
                                     @csrf
                                     @method('Delete')
-                                    <p>Are you sure you want to delete this ({{ $student_category->category }}) Student Category ? </p>
+                                    <p>Are you sure you want to delete this ({{ $student_category->category }}) Department ? </p>
                                     <input type="hidden" name="category" id="category" value="{{ $student_category->category }}">
                             </div>
                             <div class="modal-footer">

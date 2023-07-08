@@ -26,7 +26,7 @@
 <body>
     <style>
         .module-head{
-            background-color: #00cc00;
+            background-color: #000;
             color:#fff;
             font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
             text-transform: uppercase;
@@ -37,14 +37,14 @@
         }
 
         .widget-menu{
-            background: #00cc00 !important;
+            background: #000 !important;
             color:#fff;
             font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
             text-transform: uppercase;
             font-style: bold;
         }
         .navbar-inner{
-            background: #00cc00 !important;
+            background: #000 !important;
             color:#fff;
             font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
             text-transform: uppercase;

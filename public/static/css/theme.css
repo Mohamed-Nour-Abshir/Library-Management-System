@@ -920,7 +920,7 @@ transition: all .2s ease-in-out;
 	padding: 0 5px
 }
 .widget-menu .label.green {
-	background: #78ba00
+	background: #000
 }
 .widget-menu .label.orange {
 	background: #d74f2a
@@ -929,7 +929,7 @@ transition: all .2s ease-in-out;
 	border-top: 1px solid #555
 }
 .widget-menu>li>a {
-	background-color: #0000ff;
+	background-color: #000;
 	color: white;
 	-webkit-transition: all .2s ease-in-out;
 -moz-transition: all .2s ease-in-out;
@@ -948,7 +948,7 @@ transition: all .2s ease-in-out;
 	display: block
 }
 .widget-menu>li>a:hover {
-	background-color: #28262c;
+	background-color: #00cc00;
 	color: #fafafa;
 }
 
@@ -962,7 +962,7 @@ transition: all .2s ease-in-out;
 	border-top: 0
 }
 .widget-menu>li ul li.active a {
-	background: #f0f0f0
+	background: #00cc00;
 }
 .widget-menu>li ul li a {
 	padding: 10px 15px 10px 30px

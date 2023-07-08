@@ -1,11 +1,10 @@
-@extends('account.index')
-
+@extends('layout.index')
 @section('content')
 
-<div class="wrapper">
-	<div class="container">
-		<div class="row">
-			<div class="module module-login span8 offset2">
+<div class="content">
+	{{-- <div class="container"> --}}
+		{{-- <div class="row"> --}}
+			<div class="module">
 				<form class="form-vertical" action="{{ URL::route('student-registration-post') }}" method="POST">
 					<div class="module-head">
 						<h3>Student Registration Form</h3>
@@ -73,14 +72,14 @@
 								@csrf
 							</div>
 						</div>
-						<a href="{{ URL::route('account-sign-in') }}">Go Back!</a>
+						{{-- <a href="{{ URL::route('account-sign-in') }}">Go Back!</a> --}}
 					</div>
 				</form>
 			</div>
-		</div>
-	</div>
+		{{-- </div> --}}
+	{{-- </div> --}}
 </div>
 
-@include('account.style')
+{{-- @include('account.style') --}}
 
 @stop

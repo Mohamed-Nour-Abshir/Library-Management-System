@@ -1,9 +1,20 @@
 <div class="span3" >
+    <style>
+        .span3{
+            margin-left: -176px;
+            margin-top: -40px;
+        }
+    </style>
     <div class="sidebar" >
         <ul class="widget widget-menu unstyled">
             <li>
                 <a href="{{ URL::route('home') }}">
                     <i class="menu-icon icon-home" style="color: white;"></i>Home
+                </a>
+            </li>
+            <li>
+                <a href="{{ URL::route('student-registration') }}">
+                    <i class="menu-icon icon-user" style="color: white;"></i> Student Registration
                 </a>
             </li>
             <li>
