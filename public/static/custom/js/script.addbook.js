@@ -62,56 +62,69 @@ $(document).ready(function(){
         });
     });
 
-$(document).on("click","#addbooks",function(){
-
+    $(document).on("click", "#addbooks", function() {
         var form = $(this).parents('form'),
             module_body = $(this).parents('.module-body'),
-            sendJSON ={},
             send_flag = true,
             f$ = function(selector) {
                 return form.find(selector);
             };
-
-        title = f$('input[data-form-field~=title]').val();
-        author = f$('input[data-form-field~=author]').val();
-        description = f$('textarea[data-form-field~=description]').val();
-        category_id = f$('select[data-form-field~=category]').val();
-        number = parseInt(f$('input[data-form-field~=number]').val());
-        auth_user = f$('input[data-form-field~=auth_user]').val();
-        _token = f$('input[data-form-field~=token]').val();
-
-        if(title == "" || author == "" || description == "" || number == null){
-            module_body.prepend(templates.alert_box( {type: 'danger', message: 'Book Details Not Complete'} ));
+    
+        // Get form data
+        var title = f$('input[data-form-field~=title]').val();
+        var author = f$('input[data-form-field~=author]').val();
+        var description = f$('textarea[data-form-field~=description]').val();
+        var category_id = f$('select[data-form-field~=category]').val();
+        var number = parseInt(f$('input[data-form-field~=number]').val());
+        var image = f$('input[data-form-field~=image]').prop('files')[0];
+        var auth_user = f$('input[data-form-field~=auth_user]').val();
+        var _token = f$('input[data-form-field~=token]').val();
+        
+    
+        // Create FormData object
+        var formData = new FormData();
+        formData.append('title', title);
+        formData.append('author', author);
+        formData.append('description', description);
+        formData.append('category_id', category_id);
+        formData.append('number', number);
+        formData.append('image', image);
+        formData.append('auth_user', auth_user);
+        formData.append('_token', _token);
+        
+        
+        // Validate form data
+        if (title == "" || author == "" || description == "" || number == null || image == undefined) {
+            module_body.prepend(templates.alert_box({type: 'danger', message: 'Book Details Not Complete'}));
             send_flag = false;
         }
-        
-        if(send_flag == true){
-
+    
+        if (send_flag == true) {
             $.ajax({
-                type : 'POST',
-                data : {
-                   title:title, author:author, description:description,
-                    number:number, category_id : category_id, _token:_token,
-                    auth_user:auth_user
-                },
-                url : '/books',
-                success: function(data) {                    
-                    module_body.prepend(templates.alert_box( {type: 'success', message: data} ));
+                type: 'POST',
+                data: formData,
+                url: '/books',
+                contentType: false, // Set content type to false for FormData
+                processData: false, // Disable processData for FormData
+                success: function(data) {
+                    module_body.prepend(templates.alert_box({type: 'success', message: data}));
                     clearform();
                 },
-                error: function(xhr,status,error){
+                
+                error: function(xhr, status, error) {
                     var err = eval("(" + xhr.responseText + ")");
-                    module_body.prepend(templates.alert_box( {type: 'danger', message: err.error.message} ));
+                    module_body.prepend(templates.alert_box({type: 'danger', message: err.error.message}));
                 },
                 beforeSend: function() {
-                    form.css({'opacity' : '0.4'});
+                    form.css({'opacity': '0.4'});
                 },
                 complete: function() {
-                    form.css({'opacity' : '1.0'});
+                    form.css({'opacity': '1.0'});
                 }
             });
         }
-}); // add books to database
+    });
+     // add books to database
 
 
     loadResults();

@@ -10,7 +10,7 @@
             <h3>Add Books</h3>
         </div>
         <div class="module-body">
-            <form class="form-horizontal row-fluid">
+            <form class="form-horizontal row-fluid" enctype="multipart/form-data">
                 <div class="control-group">
                     <label class="control-label">Title Of Book</label>
                     <div class="controls">
@@ -51,6 +51,14 @@
                         <input type="number" id="number" data-form-field="number" placeholder="How many issues are there?" class="span8">
                     </div>
                 </div>
+
+                <div class="control-group">
+                    <label class="control-label">Book Cover Image</label>
+                    <div class="controls">
+                        <input type="file" id="image" data-form-field="image" accept="image/*" class="span8">
+                    </div>
+                </div>
+                
                 <div class="control-group">
                     <div class="controls">
                         <button type="button" class="btn btn-inverse" id="addbooks">Add Books</button>

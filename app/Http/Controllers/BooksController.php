@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Http\UploadedFile;
 use App\Models\Logs;
 use App\Models\Books;
 use App\Models\Issue;
@@ -77,21 +78,32 @@ class BooksController extends Controller
 	 *
 	 * @return Response
 	 */
-	public function store(Request $request)
-	{
-		$books = $request->all();
-		
-		// DB::transaction( function() use($books) {
-			// dd($books);
-			$db_flag = false;
-			$user_id = Auth::id();
-			$book_title = Books::create([
-				'title'			=> $books['title'],
-				'author'		=> $books['author'],
-				'description' 	=> $books['description'],
-				'category_id'	=> $books['category_id'],
-				'added_by'		=> $user_id
-			]);
+
+	 
+	 public function store(Request $request)
+	 {
+		 $books = $request->all();
+	 
+		 // Handle image upload
+		 $imagePath = null;
+		 if ($request->hasFile('image') && $request->file('image')->isValid()) {
+			 $imageFile = $request->file('image');
+			 $imageName = time() . '.' . $imageFile->extension();
+			 $imagePath = $imageFile->storeAs('book_covers', $imageName, 'public'); // Store the image in the "public/book_covers" directory
+			 $imagePath = str_replace('public/', '', $imagePath); // Remove "public/" from the image path
+		 }
+	 
+		 $db_flag = false;
+		 $user_id = Auth::id();
+		 $book_title = Books::create([
+			 'title' => $books['title'],
+			 'author' => $books['author'],
+			 'description' => $books['description'],
+			 'category_id' => $books['category_id'],
+			 'added_by' => $user_id,
+			 'image' => $imageName,
+		 ]);
+
 			// dd($book_title);
 			$newId = $book_title->book_id;
 			// dd($newId);

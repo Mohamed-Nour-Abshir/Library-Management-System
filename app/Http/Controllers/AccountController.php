@@ -3,11 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use Exception;
+use App\Models\Books;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
-use Exception;
 
 class AccountController extends Controller
 {
@@ -82,7 +83,10 @@ class AccountController extends Controller
 	}
 
 	public function getSignIn() {
-		return view('account.signin');
+		$book_lists = Books::select('book_id','title','image','author','description','book_categories.category')
+		->join('book_categories', 'book_categories.id', '=', 'books.category_id')
+		->orderBy('book_id')->get();
+		return view('account.signin',compact('book_lists'));
 	}
 
 	/* Viewing the form (GET) */
