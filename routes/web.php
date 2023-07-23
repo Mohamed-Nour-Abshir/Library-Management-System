@@ -1,5 +1,6 @@
 <?php
-
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\QRController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -159,3 +160,6 @@ Route::group(['middleware' => ['auth']] , function() {
     ));
 
 });
+
+//QrCode
+Route::get('qr_code',[QRController::class,'generate']);
