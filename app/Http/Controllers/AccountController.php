@@ -89,6 +89,21 @@ class AccountController extends Controller
 		return view('account.signin',compact('book_lists'));
 	}
 
+	public function allbooks(Request $request) {
+		$searchTerm = $request->input('search');
+		$book_lists = Books::select('book_id','title','image','author','description','book_categories.category')
+		->join('book_categories', 'book_categories.id', '=', 'books.category_id')->where('title', 'LIKE', "%$searchTerm%")
+		->orderBy('book_id')->get();
+		return view('account.allbooks',compact('book_lists'));
+	}
+	public function search(Request $request)
+    {
+        $searchTerm = $request->input('search');
+        $users = Books::where('title', 'LIKE', "%$searchTerm%")->get(); // Replace 'name' with the column you want to search
+
+        return view('account.allbooks', compact('users'));
+    }
+
 	/* Viewing the form (GET) */
 	public function getCreate() {
 		return view('account.create');

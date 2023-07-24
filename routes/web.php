@@ -1,4 +1,6 @@
 <?php
+
+use App\Http\Controllers\AccountController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\QRController;
 /*
@@ -38,7 +40,8 @@ Route::group(array('before' => 'guest'), function() {
 		Route::post('/student-registration', array(
 			'as' => 'student-registration-post',
 			'uses' => 'StudentController@postRegistration'
-		));		
+		));	
+		Route::get('/search', [AccountController::class, 'search'])->name('search');	
 
 	});
 
@@ -46,6 +49,12 @@ Route::group(array('before' => 'guest'), function() {
 	Route::get('/', array(
 		'as' 	=> 'account-sign-in',
 		'uses'	=> 'AccountController@getSignIn'
+	));
+
+	// all books (GET) 
+	Route::get('/allbooks', array(
+		'as' 	=> 'allbooks',
+		'uses'	=> 'AccountController@allbooks'
 	));
 
 	// Create an account (GET) 
