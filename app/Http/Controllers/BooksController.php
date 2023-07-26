@@ -15,6 +15,7 @@ use App\Models\StudentCategories;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\HomeController;
+use Illuminate\Support\Facades\Validator;
 use Exception;
 
 class BooksController extends Controller
@@ -59,7 +60,9 @@ class BooksController extends Controller
 		}
 
         return $book_list;
+		
 	}
+
 
 
 	/**
@@ -196,52 +199,54 @@ class BooksController extends Controller
 
 		$book = Books::find($issue->book_id);
 
-		$issue->book_name = $book->title;
-		$issue->author = $book->author;
+		// $issue->book_name = $book->title;
+		// $issue->author = $book->author;
 
-		$issue->category = Categories::find($book->category_id)
-			->category;
+		// $issue->category = Categories::find($book->category_id)
+		// 	->category;
 
-		$issue->available_status = (bool)$issue->available_status;
-		if($issue->available_status == 1){
-			return $issue;
-		}
+		// $issue->available_status = (bool)$issue->available_status;
+		// if($issue->available_status == 1){
+		// 	return $issue;
+		// }
 
-		$conditions = array(
-			'return_time'	=> 0,
-			'book_issue_id'	=> $id,
-		);
-		$book_issue_log = Logs::where($conditions)
-			->take(1)
-			->get();
+		// $conditions = array(
+		// 	'return_time'	=> 0,
+		// 	'book_issue_id'	=> $id,
+		// );
+		// $book_issue_log = Logs::where($conditions)
+		// 	->take(1)
+		// 	->get();
 
-		foreach($book_issue_log as $log){
-			$student_id = $log->student_id;
-		}
+		// foreach($book_issue_log as $log){
+		// 	$student_id = $log->student_id;
+		// }
 
-		$student_data = Student::find($student_id);
+		// $student_data = Student::find($student_id);
 
-		unset($student_data->email_id);
-		unset($student_data->books_issued);
-		unset($student_data->approved);
-		unset($student_data->rejected);
+		// unset($student_data->email_id);
+		// unset($student_data->books_issued);
+		// unset($student_data->approved);
+		// unset($student_data->rejected);
 
-		$student_branch = Branch::find($student_data->branch)
-			->branch;
-		$roll_num = $student_data->roll_num . '/' . $student_branch . '/' . substr($student_data->year, 2, 4);
+		// $student_branch = Branch::find($student_data->branch)
+		// 	->branch;
+		// $roll_num = $student_data->roll_num . '/' . $student_branch . '/' . substr($student_data->year, 2, 4);
 
-		unset($student_data->roll_num);
-		unset($student_data->branch);
-		unset($student_data->year);
+		// unset($student_data->roll_num);
+		// unset($student_data->branch);
+		// unset($student_data->year);
 
-		$student_data->roll_num = $roll_num;
+		// $student_data->roll_num = $roll_num;
 
-		$student_data->category = StudentCategories::find($student_data->category)
-			->category;
-		$issue->student = $student_data;
+		// $student_data->category = StudentCategories::find($student_data->category)
+		// 	->category;
+		// $issue->student = $student_data;
 
 
-        return $issue;
+        // return $issue;
+		$categories_list = Categories::all();
+		return view('panel.editbook', compact('book', 'categories_list'));
 	}
 
 	/**
@@ -250,10 +255,54 @@ class BooksController extends Controller
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
+	public function update(Request $request,$id)
 	{
 		//
+		$book = Books::find($id);
+
+		if (!$book) {
+			return 'Invalid Book ID';
+		}
+	
+		// Validate the input data
+		$validator = Validator::make($request->all(), [
+			'title' => 'required',
+			'author' => 'required',
+			'description' => 'required',
+			'category_id' => 'required',
+			// 'image' => 'required',
+		]);
+	
+		if ($validator->fails()) {
+			return redirect()->back()->withErrors($validator)->withInput();
+		}
+	
+		// Update book details
+		$book->title = $request->input('title');
+		$book->author = $request->input('author');
+		$book->description = $request->input('description');
+		$book->category_id = $request->input('category_id');
+	
+		// Handle image update
+		if ($request->hasFile('image') && $request->file('image')->isValid()) {
+			// Delete old image if it exists
+			if ($book->image && Storage::disk('public')->exists('book_covers/' . $book->image)) {
+				Storage::disk('public')->delete('book_covers/' . $book->image);
+			}
+	
+			$imageFile = $request->file('image');
+			$imageName = time() . '.' . $imageFile->extension();
+			$imagePath = $imageFile->storeAs('book_covers', $imageName, 'public');
+			$imagePath = str_replace('public/', '', $imagePath);
+	
+			$book->image = $imageName;
+		}
+	
+		$book->save();
+	
+		return redirect('/all-books')->with('success', 'Book updated successfully');
 	}
+	
 
 
 	/**
@@ -264,7 +313,16 @@ class BooksController extends Controller
 	 */
 	public function destroy($id)
 	{
-		//
+		$book = Books::find($id);
+	
+		if (!$book) {
+			return redirect('/all-books')->with('error', 'Book not found');
+		}
+	
+		// Delete the book
+		$book->delete();
+	
+		return redirect('/all-books')->with('success', 'Book deleted successfully');
 	}
 
 	// public function renderAddBookCategory(Type $var = null)

@@ -109,6 +109,9 @@ Route::group(['middleware' => ['auth']] , function() {
         'as' => 'all-books',
         'uses' => 'BooksController@renderAllBooks'
 	));
+	Route::put('/books/{id}', 'BooksController@update');
+	Route::get('/books/{id}/edit', 'BooksController@edit')->name('books.edit');
+	Route::delete('/books/{bookId}', 'BooksController@destroy')->name('books.destroy');
 	
 	Route::get('/bookBycategory/{cat_id}', array(
         'as' => 'bookBycategory',

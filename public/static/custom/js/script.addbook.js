@@ -138,3 +138,28 @@ function clearform(){
     $('#number').val('');
     $('#category').val('');
 }
+
+// Handle click events for edit and delete buttons
+$(document).on('click', '.btn-edit', function() {
+    var bookId = $(this).data('book-id');
+    window.location.href = '/books/' + bookId + '/edit';
+});
+
+$(document).on('click', '.btn-delete', function() {
+    var bookId = $(this).data('book-id');
+    // Send an AJAX request to delete the book
+    $.ajax({
+        url: '/books/' + bookId,
+        type: 'DELETE',
+        success: function(response) {
+            // Handle success, you can show a success message or reload the table
+            alert('Book deleted successfully.');
+            // Reload the table data
+            loadBooksData();
+        },
+        error: function(xhr) {
+            // Handle error, display an error message if needed
+            alert('Error deleting the book.');
+        }
+    });
+});

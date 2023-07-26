@@ -3,6 +3,9 @@
 @stop
 
 @section('content')
+@if(session('success'))
+    <div class="alert alert-success">{{ session('success') }}</div>
+@endif
 <div class="content">
     <div class="module">
         <div class="module-head">
@@ -31,6 +34,7 @@
                         <th>Category</th>
                         <th>Available</th>
                         <th>Total</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody id="all-books">

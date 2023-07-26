@@ -9,7 +9,7 @@ class QRController extends Controller
 {
     //
     public function generate() {
-        $url = 'https://kaizenitbd.com/';
+        $url = 'https://mohamednurabshir.kaizenitbd.com/';
         $qrCode = QrCode::size(200)->generate($url);
         return response($qrCode);
  
