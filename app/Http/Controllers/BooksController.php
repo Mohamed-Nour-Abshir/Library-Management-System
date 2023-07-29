@@ -192,12 +192,12 @@ class BooksController extends Controller
 	 */
 	public function edit($id)
 	{
-		$issue = Issue::find($id);
-		if($issue == NULL){
-			return 'Invalid Book ID';
-		}
+		// $issue = Issue::find($id);
+		// if($issue == NULL){
+		// 	return 'Invalid Book ID';
+		// }
 
-		$book = Books::find($issue->book_id);
+		// $book = Books::find($issue->book_id);
 
 		// $issue->book_name = $book->title;
 		// $issue->author = $book->author;
@@ -245,6 +245,8 @@ class BooksController extends Controller
 
 
         // return $issue;
+
+		$book = Books::find($id);
 		$categories_list = Categories::all();
 		return view('panel.editbook', compact('book', 'categories_list'));
 	}
@@ -343,7 +345,8 @@ class BooksController extends Controller
         $db_control = new HomeController();
 
 		return view('panel.allbook')
-            ->with('categories_list', $db_control->categories_list);
+            ->with('categories_list', $db_control->categories_list)
+            ->with('book_list', $db_control->book_list);
 	}
 	
 	public function BookByCategory($cat_id)

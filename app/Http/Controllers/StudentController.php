@@ -235,7 +235,7 @@ class StudentController extends Controller
 			$student = StudentCategories::find($id);
 			$student->delete();
 			if (!$student) {
-				return "Student Category Fail to Delete!.";
+				return "School Department Fail to Delete!.";
 			}else {
 				return redirect(route('settings'));
 			}
@@ -328,9 +328,9 @@ class StudentController extends Controller
 			$student = StudentCategories::create($request->all());
 
 			if (!$student) {
-				return "Student Category Fail to Save!.";
+				return "School Department Fail to Save!.";
 			}else {
-				return "Student Category Save Succesfully!.";
+				return "School Department Save Succesfully!.";
 				// return back();
 			}
 		}elseif ($request->branch) {

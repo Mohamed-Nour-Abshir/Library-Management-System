@@ -145,21 +145,20 @@ $(document).on('click', '.btn-edit', function() {
     window.location.href = '/books/' + bookId + '/edit';
 });
 
-$(document).on('click', '.btn-delete', function() {
-    var bookId = $(this).data('book-id');
-    // Send an AJAX request to delete the book
-    $.ajax({
-        url: '/books/' + bookId,
-        type: 'DELETE',
-        success: function(response) {
-            // Handle success, you can show a success message or reload the table
-            alert('Book deleted successfully.');
-            // Reload the table data
-            loadBooksData();
-        },
-        error: function(xhr) {
-            // Handle error, display an error message if needed
-            alert('Error deleting the book.');
+$(document).ready(function() {
+    $('.btn-delete').on('click', function(event) {
+        event.preventDefault(); // Prevent the default link behavior
+
+        var form = $(this).closest('form'); // Get the closest form element
+
+        // Ask for confirmation using JavaScript confirm dialog
+        if (confirm('Are you sure you want to delete this book?')) {
+            // Proceed with the form submission if user confirms
+            form.submit();
+        } else {
+            // If user clicks "Cancel", do nothing
         }
     });
 });
+
+$('#myModal').modal(options)

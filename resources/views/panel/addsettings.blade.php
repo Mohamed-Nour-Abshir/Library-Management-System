@@ -14,6 +14,7 @@
             <h3>Add Settings</h3>
         </div>
         <div class="row">
+
             <div class="module-body column">
                 <h2 style="text-align:center; font-family:'Times New Roman', Times, serif">DIU Branches</h2>
                 <form class="form-horizontal row-fluid">
@@ -89,6 +90,7 @@
                   </table>
 
             </div>
+
             <div class="module-body column">
                 <h2 style="text-align:center; font-family:'Times New Roman', Times, serif">University Departments</h2>
                 <form class="form-horizontal row-fluid">
@@ -164,6 +166,7 @@
                     </tbody>
                   </table>
             </div>
+            
           </div>
     </div>  
 </div>
