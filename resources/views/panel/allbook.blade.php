@@ -3,6 +3,38 @@
 @stop
 
 @section('content')
+<style>
+    /* Media query for screens smaller than 768px (tablets and phones) */
+@media (max-width: 767px) {
+    .span3, .span9 {
+        margin-left: 0;
+        margin-top: 0;
+        width: 100%;
+    }
+}
+
+/* Media query for screens between 768px and 991px (small desktops and tablets) */
+@media (min-width: 768px) and (max-width: 991px) {
+    .span3, .span9 {
+        margin-left: 0;
+        margin-top: 0;
+        width: 100%;
+    }
+}
+
+/* Media query for screens larger than 991px (desktops and larger) */
+@media (min-width: 992px) {
+    .span3 {
+        margin-left: -176px;
+        margin-top: -40px;
+        width: 25%; /* You can adjust the width to your preference */
+        float: left;
+    }
+    .span9 {
+        width: 75%; /* Adjust the width based on the sidebar width */
+    }
+}
+</style>
 @if(session('success'))
     <div class="alert alert-success">{{ session('success') }}</div>
 @endif

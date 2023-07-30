@@ -1,9 +1,11 @@
 <div class="span3" >
     <style>
-        .span3{
-            margin-left: -176px;
-            margin-top: -40px;
-        }
+        /* General styles for the sidebar */
+.span3 {
+    margin-left: -176px;
+    margin-top: -40px;
+}
+
     </style>
     <div class="sidebar" >
         <ul class="widget widget-menu unstyled">

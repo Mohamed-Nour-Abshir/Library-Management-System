@@ -35,7 +35,7 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
                         <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/">Books</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="/">Books</a></li>
                         <li class="nav-item"><a class="nav-link" href="/">About</a></li>
                         <li class="nav-item"><a class="nav-link" href="/">Team</a></li>
                     </ul>
