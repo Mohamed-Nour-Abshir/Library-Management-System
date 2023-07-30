@@ -1,4 +1,4 @@
-@extends('layout.index')
+@extends('layout.base')
 @section('custom_top_script')
 @stop
 
