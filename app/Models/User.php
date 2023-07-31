@@ -8,7 +8,7 @@ use Illuminate\Auth\Reminders\RemindableInterface;
 class User extends Eloquent implements UserInterface, RemindableInterface {
 
 	/* Alowing Eloquent to insert data into our database */
-	protected $fillable = array('name', 'username', 'password', 'verification_status');
+	protected $fillable = array('name', 'username', 'profile_image', 'password', 'verification_status');
 
         public $timestamps = false;
 

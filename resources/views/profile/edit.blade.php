@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <h1>Edit Profile</h1>
-        <form action="{{ route('profile.update') }}" method="POST">
+        <form action="{{ route('profile.update') }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
 
@@ -27,6 +27,14 @@
                 <label for="email">Email</label>
                 <input type="email" name="email" id="email" class="form-control" value="{{ old('email', $user->email) }}">
                 @error('email')
+                    <span class="text-danger">{{ $message }}</span>
+                @enderror
+            </div>
+
+            <div class="form-group">
+                <label for="profile_image">Profile Image</label>
+                <input type="file" name="profile_image" id="profile_image" class="form-control-file">
+                @error('profile_image')
                     <span class="text-danger">{{ $message }}</span>
                 @enderror
             </div>
