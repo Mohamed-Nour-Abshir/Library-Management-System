@@ -11,7 +11,7 @@
                         <img src="{{ asset('images/nour.jpg') }}" class="nav-avatar" />Libarian
                         <b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#" target="_blank">Profile</a></li>
+                            <li><a href="{{route('profile.show')}}">Profile</a></li>
                             <li class="divider"></li>
                             <li><a href="{{ URL::route('account-sign-out') }}">Logout</a></li>
                         </ul>

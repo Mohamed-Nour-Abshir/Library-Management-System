@@ -3,6 +3,7 @@
 use App\Http\Controllers\AccountController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\QRController;
+use App\Http\Controllers\UserProfileController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -170,6 +171,10 @@ Route::group(['middleware' => ['auth']] , function() {
     	'as' => 'account-sign-out',
 		'uses' => 'AccountController@getSignOut'
     ));
+
+	Route::get('/profile', [UserProfileController::class, 'show'])->name('profile.show');
+	Route::get('/profile-edit', [UserProfileController::class, 'edit'])->name('profile.edit');
+    Route::put('/profile', [UserProfileController::class, 'update'])->name('profile.update');
 
 });
 
