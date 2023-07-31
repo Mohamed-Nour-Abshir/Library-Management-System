@@ -28,7 +28,9 @@
                         <div class="alert alert-success">{{ session('success') }}</div>
                     @endif
                     @if($user->profile_image)
-                        <img src="{{ asset('images/profile_images/' . $user->profile_image) }}" alt="Profile Image" width="200">
+                        <img src="{{ asset('images/profile_images/' . $user->profile_image) }}" alt="Profile Image" style="width: 200px; height:200px;">
+                    @else
+                        <img src="{{ asset('images/profile_images/default-user.jpg') }}" style="width: 200px; height:200px;" />
                     @endif
                     <p>Name: {{ $user->name }}</p>
                     <p>Email: {{ $user->username }}</p>

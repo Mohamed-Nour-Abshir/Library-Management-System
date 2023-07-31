@@ -26,7 +26,18 @@
                     <form action="{{ route('profile.update') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
-            
+                        @if($user->profile_image)
+                            <img src="{{ asset('images/profile_images/' . $user->profile_image) }}" alt="Profile Image" style="width: 200px; height:200px;">
+                        @else
+                            <img src="{{ asset('images/profile_images/default-user.jpg') }}" style="width: 200px; height:200px;" />
+                        @endif
+                        <div class="form-group">
+                            <input type="file" name="profile_image" id="profile_image" class="form-control-file">
+                            @error('profile_image')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
+                        <br>
                         <div class="form-group">
                             <label for="name">Name</label>
                             <input type="text" name="name" id="name" class="form-control" value="{{ old('name', $user->name) }}">
@@ -51,24 +62,7 @@
                             @enderror
                         </div>
             
-                        <div class="form-group">
-                            <label for="profile_image">Profile Image</label>
-                            <input type="file" name="profile_image" id="profile_image" class="form-control-file">
-                            @error('profile_image')
-                                <span class="text-danger">{{ $message }}</span>
-                            @enderror
-                        </div>
-                        <br>
-                        @if($user->profile_image)
-                            <img src="{{ asset('images/profile_images/' . $user->profile_image) }}" alt="Profile Image" style="width: 100px; height:100px;">
-                        @else
-                            <img src="{{ asset('images/profile_images/default-user.jpg') }}" style="width: 100px; height:100px;" />
-                        @endif
-                        <br>
-            
-                        <!-- Add other fields you want to edit here -->
-            
-                        <button type="submit" class="btn btn-primary" style="margin-top: 30px;">Update Profile</button>
+                        <button type="submit" class="btn btn-primary" style="margin-top: 20px;">Update Profile</button>
                     </form>
                 </div>
             </div>
