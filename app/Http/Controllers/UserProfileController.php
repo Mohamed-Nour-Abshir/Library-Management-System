@@ -30,7 +30,7 @@ class UserProfileController extends Controller
             'name' => 'required|string|max:255',
             'username' => 'required',
             'email' => 'required|string|email|max:255|unique:users,email,' . $user->id,
-            'profile_image' => 'required',
+            'profile_image' => '',
         ]);
 
         if ($validator->fails()) {

@@ -4,6 +4,7 @@ use App\Http\Controllers\AccountController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\QRController;
 use App\Http\Controllers\UserProfileController;
+use App\Http\Controllers\ChangePasswordController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -172,9 +173,14 @@ Route::group(['middleware' => ['auth']] , function() {
 		'uses' => 'AccountController@getSignOut'
     ));
 
+	// Admin Edit Profile Routes 
 	Route::get('/profile', [UserProfileController::class, 'show'])->name('profile.show');
 	Route::get('/profile-edit', [UserProfileController::class, 'edit'])->name('profile.edit');
     Route::put('/profile', [UserProfileController::class, 'update'])->name('profile.update');
+
+	// New routes for change password
+    Route::get('/change-password', [ChangePasswordController::class, 'showForm'])->name('password.change');
+    Route::post('/change-password', [ChangePasswordController::class, 'changePassword'])->name('password.update');
 
 });
 
