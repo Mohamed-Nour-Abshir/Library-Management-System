@@ -12,38 +12,51 @@ use Illuminate\Support\Facades\Redirect;
 
 class AccountController extends Controller
 {
+	public function __construct()
+    {
+        $this->middleware('guest:admin')->except('logout');
+    }
     	### Sign In
 	/* After submitting the sign-in form */
+	protected $redirectTo = '/home';
 	public function postSignIn(Request $request) {
-		$validator = $request->validate([
-				'username' 	=> 'required',
-				'password'	=> 'required'
+		$credentials = $request->only('username', 'password');
+		// $validator = $request->validate([
+		// 		'username' 	=> 'required',
+		// 		'password'	=> 'required'
 
-		]);
-		if(!$validator) {
-			// Redirect to the sign in page
-			return Redirect::route('account-sign-in')
-				->withErrors($validator)
-				->withInput();   // redirect the input
+		// ]);
+		// if(!$validator) {
+		// 	// Redirect to the sign in page
+		// 	return Redirect::route('account-sign-in')
+		// 		->withErrors($validator)
+		// 		->withInput();   // redirect the input
 
-		} else {
+		// } else {
 
-			$remember = ($request->has('remember')) ? true : false;
-			$auth = Auth::attempt(array(
-				'username' => $request->get('username'),
-				'password' => $request->get('password')
-			), $remember);
-		} 
+		// 	$remember = ($request->has('remember')) ? true : false;
+		// 	$auth = Auth::attempt(array(
+		// 		'username' => $request->get('username'),
+		// 		'password' => $request->get('password')
+		// 	), $remember);
+		// } 
 
-		if($auth) {
+		// if($auth) {
 			
-			return Redirect::intended('home');
+		// 	return Redirect::intended('home');
 
-		} else {
+		// } else {
 			
-			return Redirect::route('account-sign-in')
-				->with('global', 'Wrong Email or Wrong Password.');
-		}
+		// 	return Redirect::route('account-sign-in')
+		// 		->with('global', 'Wrong Email or Wrong Password.');
+		if (Auth::guard('admin')->attempt($credentials)) {
+            // Authentication passed, redirect to the intended page.
+            return redirect()->intended($this->redirectTo);
+        }
+
+        // Authentication failed, redirect back to the login page with an error message.
+        return redirect()->route('account-sign-in')->with('error', 'Invalid login credentials.');
+		// }
 
 		return Redirect::route('account-sign-in')
 			->with('global', 'There is a problem. Have you activated your account?');
@@ -87,6 +100,11 @@ class AccountController extends Controller
 		->join('book_categories', 'book_categories.id', '=', 'books.category_id')
 		->orderBy('book_id')->get();
 		return view('account.signin',compact('book_lists'));
+	}
+
+	//Return Admin To Login Page
+	public function login(){
+		return view('auth.admin.login');
 	}
 
 	public function allbooks(Request $request) {

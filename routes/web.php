@@ -69,10 +69,14 @@ Route::group(array('before' => 'guest'), function() {
 	});
 
 	// Sign in (GET) 
-	Route::get('/', array(
+	Route::get('/admin-login', array(
 		'as' 	=> 'account-sign-in',
-		'uses'	=> 'AccountController@getSignIn'
+		'uses'	=> 'AccountController@login'
 	));
+	// Route::get('/', array(
+	// 	'as' 	=> 'account-sign-in',
+	// 	'uses'	=> 'AccountController@getSignIn'
+	// ));
 
 	// all books (GET) 
 	Route::get('/allbooks', array(
@@ -232,4 +236,8 @@ Route::group(['middleware' => ['auth:teacher']], function () {
 
 Route::group(['middleware' => ['auth:admin']], function () {
     // Admin-specific routes go here
+	Route::get('/home',array(
+		'as' 	=> 'home',
+		'uses'	=> 'HomeController@home'
+	));	
 });
