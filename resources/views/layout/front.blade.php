@@ -38,9 +38,9 @@
                                         Login
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item" href="#">Teacher Login</a>
+                                        <a class="dropdown-item" href="">Teacher Login</a>
                                         <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href="#">Student Login</a>
+                                        <a class="dropdown-item" href="{{route('student.register')}}">Student Login</a>
                                     </div>
                                 </li>
                             </ul>

@@ -46,6 +46,21 @@ return [
             'provider' => 'users',
             'hash' => false,
         ],
+
+        'student' => [
+            'driver' => 'session',
+            'provider' => 'students',
+        ],
+    
+        'teacher' => [
+            'driver' => 'session',
+            'provider' => 'teachers',
+        ],
+    
+        'admin' => [
+            'driver' => 'session',
+            'provider' => 'admins',
+        ],
     ],
 
     /*
@@ -75,6 +90,21 @@ return [
         //     'driver' => 'database',
         //     'table' => 'users',
         // ],
+
+        'students' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Member::class,
+        ],
+    
+        'teachers' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Teacher::class,
+        ],
+    
+        'admins' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Admin::class,
+        ],
     ],
 
     /*
@@ -91,6 +121,13 @@ return [
     | they have less time to be guessed. You may change this as needed.
     |
     */
+
+    'middleware' => [
+        // ...
+        'student' => \App\Http\Middleware\RedirectIfNotStudent::class,
+        'teacher' => \App\Http\Middleware\RedirectIfNotTeacher::class,
+        'admin' => \App\Http\Middleware\RedirectIfNotAdmin::class,
+    ],
 
     'passwords' => [
         'users' => [

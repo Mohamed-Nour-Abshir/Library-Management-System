@@ -24,7 +24,7 @@
                             <li class="divider"></li>
                             <li><a href="{{route('password.change')}}">Change Password</a></li>
                             <li class="divider"></li>
-                            <li><a href="{{ URL::route('account-sign-out') }}">Logout</a></li>
+                            <li><a href="{{ URL::route('logout') }}">Logout</a></li>
                         </ul>
                     </li>
                 </ul>

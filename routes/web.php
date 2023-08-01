@@ -1,10 +1,16 @@
 <?php
 
-use App\Http\Controllers\AccountController;
+use Auth\StudentLoginController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\QRController;
+use App\Http\Controllers\AccountController;
 use App\Http\Controllers\UserProfileController;
 use App\Http\Controllers\ChangePasswordController;
+use App\Http\Controllers\Auth\AdminLoginController;
+use App\Http\Controllers\Auth\TeacherLoginController;
+use App\Http\Controllers\Auth\AdminRegisterController;
+use App\Http\Controllers\Auth\StudentRegisterController;
+use App\Http\Controllers\Auth\TeacherRegisterController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,6 +25,21 @@ use App\Http\Controllers\ChangePasswordController;
 Route::get('/', function () {
     return view('welcome');
 });
+
+// Student routes
+Route::get('student-login', 'Auth\StudentLoginController@showLoginForm')->name('student.login');
+Route::post('student-login', 'Auth\StudentLoginController@login')->name('student.login.post');
+Route::get('student-register', 'Auth\StudentRegisterController@showRegistrationForm')->name('student.register');
+Route::post('student-register', 'Auth\StudentRegisterController@register')->name('student.registeration');
+
+Route::get('/logout', 'Auth\LogoutController@logout')->name('logout');
+
+// Teacher routes
+Route::get('teacher-login', 'Auth\TeacherLoginController@showLoginForm')->name('teacher.login');
+Route::post('teacher-login', 'Auth\TeacherLoginController@login')->name('teacher.login.post');
+Route::get('teacher-register', 'Auth\TeacherRegisterController@showRegistrationForm')->name('teacher.register');
+Route::post('teacher-register', 'Auth\TeacherRegisterController@register')->name('teacher.register.post');
+
 
 // Unauthenticated group 
 Route::group(array('before' => 'guest'), function() {
@@ -186,6 +207,29 @@ Route::group(['middleware' => ['auth']] , function() {
 
 //QrCode
 Route::get('qr_code',[QRController::class,'generate']);
-Route::get('/student-signup',function(){
-	return view('auth.teacher.register');
+
+
+
+
+
+/////////////////////////////////////////New Code
+
+Route::group(['middleware' => ['auth:student']], function () {
+    // Student-specific routes go here
+	Route::get('/home',array(
+		'as' 	=> 'home',
+		'uses'	=> 'HomeController@home'
+	));	
+});
+
+Route::group(['middleware' => ['auth:teacher']], function () {
+    // Teacher-specific routes go here
+	Route::get('/home',array(
+		'as' 	=> 'home',
+		'uses'	=> 'HomeController@home'
+	));	
+});
+
+Route::group(['middleware' => ['auth:admin']], function () {
+    // Admin-specific routes go here
 });

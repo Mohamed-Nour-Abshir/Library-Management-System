@@ -63,7 +63,7 @@
         </ul>
         
         <ul class="widget widget-menu unstyled">
-            <li><a href="{{ URL::route('account-sign-out') }}"><i class="menu-icon icon-wrench" style="color: white;"></i>Logout </a></li>
+            <li><a href="{{ URL::route('logout') }}"><i class="menu-icon icon-wrench" style="color: white;"></i>Logout </a></li>
         </ul>
     </div>
 </div>
