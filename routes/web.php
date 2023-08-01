@@ -186,3 +186,6 @@ Route::group(['middleware' => ['auth']] , function() {
 
 //QrCode
 Route::get('qr_code',[QRController::class,'generate']);
+Route::get('/student-signup',function(){
+	return view('auth.teacher.register');
+});

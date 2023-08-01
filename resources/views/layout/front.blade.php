@@ -20,17 +20,17 @@
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
             <div class="container">
-                <a class="navbar-brand" href="#page-top" style="font-style: italic;">DIU - Library</a>
+                <a class="navbar-brand" href="/" style="font-style: italic;">DIU - Library</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Menu
                     <i class="fas fa-bars ms-1"></i>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
-                        <li class="nav-item"><a class="nav-link" href="#services">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#portfolio">Books</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#team">Team</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/">Books</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/">Team</a></li>
                         <li class="nav-item">
                             <ul class="ms-5">
                                 <li class="nav-item dropdown dropdown-menu-enddropdown-menu-right">
@@ -52,149 +52,42 @@
                 </div>
             </div>
         </nav>
-        <!-- Masthead-->
+
+        <style>
+            header.masthead {
+                padding-top: 10.5rem;
+                padding-bottom: 6rem;
+                text-align: center;
+                background-image: url("/assets/img/header-bg1.jpg");
+                background-repeat: no-repeat;
+                background-attachment: scroll;
+                background-position: center center;
+                background-size: cover;
+                filter: brightness(100%);
+                color: #fff !important;
+            }
+        </style>
         <header class="masthead">
             <div class="container">
                 @include('account.message')
-                <div class="masthead-subheading">Welcome To Our DIU</div>
-                <div class="masthead-heading text-uppercase">Library Management System</div>
-                <a class="btn btn-primary btn-xl text-uppercase" href="allbooks">Find Books</a>
+                <div class="row">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-8">
+                        <div class="card pt-4">
+                            <div class="card-body">
+                                <div class="masthead-subheading">
+                                    @yield('content')
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2"></div>
+                </div>
             </div>
         </header>
 
-        <!-- BOOKS Grid-->
-        <section class="page-section bg-light" id="portfolio">
-            <div class="container">
-                <div class="text-center">
-                    <h2 class="section-heading text-uppercase">Books</h2>
-                    <h3 class="section-subheading text-muted">Find all the books in the library.</h3>
-                </div>
-                <div class="row">
-                    @yield('content')
-                </div>
-            </div>
-             <div class="container d-flex justify-content-center mt-4">
-                <a class="btn btn-primary btn-xl text-uppercase" href="allbooks">Load More</a>
-            </div>
+       
 
-        </section>
-        
-        <!-- About-->
-        <section class="page-section" id="about">
-            <div class="container">
-                <div class="text-center">
-                    <h2 class="section-heading text-uppercase">About</h2>
-                    <h3 class="section-subheading text-muted">Find How we developed this project.</h3>
-                </div>
-                <ul class="timeline">
-                    <li>
-                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/nour1.jpg" alt="..." /></div>
-                        <div class="timeline-panel">
-                            <div class="timeline-heading">
-                                <h4>Designed Front site</h4>
-                                <h6 class="subheading">Time: 1 Week</h6>
-                            </div>
-                            <div class="timeline-body"><p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p></div>
-                        </div>
-                    </li>
-                    <li class="timeline-inverted">
-                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/nour1.jpg" alt="..." /></div>
-                        <div class="timeline-panel">
-                            <div class="timeline-heading">
-                                <h4>Designed The Dashboard</h4>
-                                <h6 class="subheading">Time: 2 Weeks</h6>
-                            </div>
-                            <div class="timeline-body"><p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p></div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/nour1.jpg" alt="..." /></div>
-                        <div class="timeline-panel">
-                            <div class="timeline-heading">
-                                <h4>Developed 5 Pages Admin dashboard</h4>
-                                <h6 class="subheading">Time: 2 Months</h6>
-                            </div>
-                            <div class="timeline-body"><p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p></div>
-                        </div>
-                    </li>
-                    <li class="timeline-inverted">
-                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/nour1.jpg" alt="..." /></div>
-                        <div class="timeline-panel">
-                            <div class="timeline-heading">
-                                <h4>Developed 5 Pages Admin dashboard</h4>
-                                <h6 class="subheading">Time: 2 Months</h6>
-                            </div>
-                            <div class="timeline-body"><p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p></div>
-                        </div>
-                    </li>
-                    <li class="timeline-inverted">
-                        <div class="timeline-image">
-                            <h4>
-                                The End
-                                <br />
-                                Is
-                                <br />
-                                Here!
-                            </h4>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </section>
-        <!-- Team-->
-        <section class="page-section bg-light" id="team">
-            <div class="container">
-                <div class="text-center">
-                    <h2 class="section-heading text-uppercase">Our Amazing Team</h2>
-                    <h3 class="section-subheading text-muted">Check our amazing team here.</h3>
-                </div>
-                <div class="row">
-                    <div class="col-lg-3">
-                        <div class="team-member">
-                            <img class="mx-auto rounded-circle" src="assets/img/team/nour1.jpg" alt="..." />
-                            <h4>Nour Abshir</h4>
-                            <p class="text-muted">Web Developer (<span class="text-danger">Leader</span>)</p>
-                            <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Nour Abshir Twitter Profile"><i class="fab fa-twitter"></i></a>
-                            <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Nour Abshir Facebook Profile"><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Nour Abshir LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="team-member">
-                            <img class="mx-auto rounded-circle" src="assets/img/team/nour1.jpg" alt="..." />
-                            <h4>Nour Abshir</h4>
-                            <p class="text-muted">Web Developer</p>
-                            <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Nour Abshir Twitter Profile"><i class="fab fa-twitter"></i></a>
-                            <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Nour Abshir Facebook Profile"><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Nour Abshir LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="team-member">
-                            <img class="mx-auto rounded-circle" src="assets/img/team/nour1.jpg" alt="..." />
-                            <h4>Nour Abshir</h4>
-                            <p class="text-muted">Web Designer</p>
-                            <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Nour Abshir Twitter Profile"><i class="fab fa-twitter"></i></a>
-                            <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Nour Abshir Facebook Profile"><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Nour Abshir LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="team-member">
-                            <img class="mx-auto rounded-circle" src="assets/img/team/nour1.jpg" alt="..." />
-                            <h4>Nour Abshir</h4>
-                            <p class="text-muted">Web Designer</p>
-                            <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Nour Abshir Twitter Profile"><i class="fab fa-twitter"></i></a>
-                            <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Nour Abshir Facebook Profile"><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Nour Abshir LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-8 mx-auto text-center"><p class="large text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p></div>
-                </div>
-            </div>
-        </section>
         <!-- Footer-->
         <footer class="footer py-4 bg-dark text-white">
             <div class="container">
