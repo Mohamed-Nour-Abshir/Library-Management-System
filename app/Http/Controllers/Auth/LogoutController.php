@@ -14,8 +14,8 @@ class LogoutController extends Controller
             Auth::guard('student')->logout();
         } elseif (Auth::guard('teacher')->check()) {
             Auth::guard('teacher')->logout();
-        } elseif (Auth::guard('user')->check()) {
-            Auth::guard('user')->logout();
+        } elseif (Auth::guard('admin')->check()) {
+            Auth::guard('admin')->logout();
         }
 
         return redirect('/');

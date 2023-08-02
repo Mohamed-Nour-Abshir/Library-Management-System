@@ -22,9 +22,9 @@ use App\Http\Controllers\Auth\TeacherRegisterController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 // Student routes
 Route::get('student-login', 'Auth\StudentLoginController@showLoginForm')->name('student.login');

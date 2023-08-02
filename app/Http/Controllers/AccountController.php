@@ -129,8 +129,12 @@ class AccountController extends Controller
 
 	### Sign Out
 	public function getSignOut() {
-		Auth::logout();
-		return Redirect::route('account-sign-in');
+		Auth::guard('admin')->logout();
+        return redirect('/');
 	}
+	// public function getSignOut() {
+	// 	Auth::logout();
+	// 	return Redirect::route('account-sign-in');
+	// }
 
 }
