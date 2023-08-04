@@ -8,6 +8,7 @@ use App\Models\Books;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use App\Providers\RouteServiceProvider;
 use Illuminate\Support\Facades\Redirect;
 
 class AccountController extends Controller
@@ -18,7 +19,7 @@ class AccountController extends Controller
     }
     	### Sign In
 	/* After submitting the sign-in form */
-	protected $redirectTo = '/home';
+	protected $redirectTo = RouteServiceProvider::HOME;
 	public function postSignIn(Request $request) {
 		$credentials = $request->only('username', 'password');
 		// $validator = $request->validate([
@@ -51,7 +52,7 @@ class AccountController extends Controller
 		// 		->with('global', 'Wrong Email or Wrong Password.');
 		if (Auth::guard('admin')->attempt($credentials)) {
             // Authentication passed, redirect to the intended page.
-            return redirect()->intended($this->redirectTo);
+            return redirect(RouteServiceProvider::HOME);
         }
 
         // Authentication failed, redirect back to the login page with an error message.

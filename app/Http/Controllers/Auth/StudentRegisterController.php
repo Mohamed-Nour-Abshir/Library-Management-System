@@ -3,20 +3,21 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Models\Branch;
-use App\Models\Student;
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use App\Models\Categories;
 use App\Models\Member;
+use App\Models\Student;
+use App\Models\Categories;
+use Illuminate\Http\Request;
 use App\Models\StudentCategories;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use App\Providers\RouteServiceProvider;
 use Illuminate\Support\Facades\Validator;
 
 class StudentRegisterController extends Controller
 {
     // protected $redirectTo = '/student/dashboard';
-    protected $redirectTo = '/home';
+    protected $redirectTo = RouteServiceProvider::TEACHER_HOME;
 
     public function __construct()
     {

@@ -124,9 +124,9 @@ return [
 
     'middleware' => [
         // ...
+        'admin' => \App\Http\Middleware\RedirectIfAuthenticated::class,
         'student' => \App\Http\Middleware\RedirectIfNotStudent::class,
         'teacher' => \App\Http\Middleware\RedirectIfNotTeacher::class,
-        'admin' => \App\Http\Middleware\RedirectIfNotAdmin::class,
     ],
 
     'passwords' => [

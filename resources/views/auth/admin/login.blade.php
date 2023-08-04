@@ -8,6 +8,9 @@
                 <div class="module-head">
                     <h3 class="text-warning">Login</h3>
                 </div>
+                @if(session('error'))
+                    <div class="alert alert-danger">{{ session('error') }}</div>
+                @endif
                 <div class="module-body">
                     <div class="control-group">
                     <input class="span8 form-control mb-3" type="email" placeholder="E-mail" name="username" autocomplete="false" value="{{ Request::old('login') }}" /> 

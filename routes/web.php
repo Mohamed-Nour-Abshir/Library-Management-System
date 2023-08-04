@@ -28,7 +28,7 @@ use App\Http\Controllers\Auth\TeacherRegisterController;
 
 // Student routes
 Route::get('student-login', 'Auth\StudentLoginController@showLoginForm')->name('student.login');
-Route::post('student-login', 'Auth\StudentLoginController@login')->name('student.login.post');
+Route::post('student-login', 'Auth\StudentLoginController@login')->name('student.login-post');
 Route::get('student-register', 'Auth\StudentRegisterController@showRegistrationForm')->name('student.register');
 Route::post('student-register', 'Auth\StudentRegisterController@register')->name('student.registeration');
 
@@ -73,10 +73,10 @@ Route::group(array('before' => 'guest'), function() {
 		'as' 	=> 'account-sign-in',
 		'uses'	=> 'AccountController@login'
 	));
-	// Route::get('/', array(
-	// 	'as' 	=> 'account-sign-in',
-	// 	'uses'	=> 'AccountController@getSignIn'
-	// ));
+	Route::get('/', array(
+		'as' 	=> 'account-sign-in',
+		'uses'	=> 'AccountController@getSignIn'
+	));
 
 	// all books (GET) 
 	Route::get('/allbooks', array(
@@ -109,11 +109,11 @@ Route::resource('/books', 'BooksController');
 
 // Authenticated group 
 // Route::group(array('before' => 'auth'), function() {
-Route::group(['middleware' => ['auth']] , function() {
+Route::group(['middleware' => ['auth:admin']] , function() {
 
 	// Home Page of Control Panel
-	Route::get('/home',array(
-		'as' 	=> 'home',
+	Route::get('/admin/home',array(
+		'as' 	=> 'admin.home',
 		'uses'	=> 'HomeController@home'
 	));	
 
@@ -217,27 +217,36 @@ Route::get('qr_code',[QRController::class,'generate']);
 
 
 /////////////////////////////////////////New Code
+Route::group(['middleware' => ['auth:admin']], function () {
+    // Admin-specific routes go here
+	Route::get('/admin/home',array(
+		'as' 	=> 'admin.home',
+		'uses'	=> 'HomeController@home'
+	));	
+});
 
 Route::group(['middleware' => ['auth:student']], function () {
     // Student-specific routes go here
-	Route::get('/home',array(
-		'as' 	=> 'home',
+	Route::get('/student/home',array(
+		'as' 	=> 'student.home',
 		'uses'	=> 'HomeController@home'
 	));	
 });
 
 Route::group(['middleware' => ['auth:teacher']], function () {
     // Teacher-specific routes go here
-	Route::get('/home',array(
-		'as' 	=> 'home',
+	Route::get('/teacher/home',array(
+		'as' 	=> 'teacher.home',
 		'uses'	=> 'HomeController@home'
 	));	
+		// Admin Edit Profile Routes 
+		Route::get('/teacher/profile', [UserProfileController::class, 'show'])->name('teacher.profile.show');
+		Route::get('/teacher/profile-edit', [UserProfileController::class, 'edit'])->name('teacher.profile.edit');
+		Route::put('/teacher/profile', [UserProfileController::class, 'update'])->name('teacher.profile.update');
+	
+		// New routes for change password
+		Route::get('/teacher/change-password', [ChangePasswordController::class, 'showForm'])->name('teacher.password.change');
+		Route::post('/teacher/change-password', [ChangePasswordController::class, 'changePassword'])->name('teacher.password.update');
 });
 
-Route::group(['middleware' => ['auth:admin']], function () {
-    // Admin-specific routes go here
-	Route::get('/home',array(
-		'as' 	=> 'home',
-		'uses'	=> 'HomeController@home'
-	));	
-});
+

@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use App\Providers\RouteServiceProvider;
 
 class TeacherLoginController extends Controller
 {
-    protected $redirectTo = '/home';
+    protected $redirectTo = RouteServiceProvider::TEACHER_HOME;
 
     public function __construct()
     {
@@ -26,7 +27,7 @@ class TeacherLoginController extends Controller
 
         if (Auth::guard('teacher')->attempt($credentials)) {
             // Authentication passed, redirect to the intended page.
-            return redirect()->intended($this->redirectTo);
+            return redirect(RouteServiceProvider::TEACHER_HOME);
         }
 
         // Authentication failed, redirect back to the login page with an error message.

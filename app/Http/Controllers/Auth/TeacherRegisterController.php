@@ -3,20 +3,21 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Models\Branch;
-use App\Models\Student;
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use App\Models\Categories;
 use App\Models\Member;
-use App\Models\StudentCategories;
+use App\Models\Student;
 use App\Models\Teacher;
+use App\Models\Categories;
+use Illuminate\Http\Request;
+use App\Models\StudentCategories;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use App\Providers\RouteServiceProvider;
 use Illuminate\Support\Facades\Validator;
 
 class TeacherRegisterController extends Controller
 {
-    protected $redirectTo = '/home';
+    protected $redirectTo = RouteServiceProvider::TEACHER_HOME;
 
     public function __construct()
     {
@@ -41,7 +42,7 @@ class TeacherRegisterController extends Controller
             'branch' => ['required', 'numeric'],
             'year' => ['required', 'numeric'],
             'category' => ['required', 'numeric'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:members'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:teachers'],
             'password' => ['required','min:8'],
             'password_again'=> 'required|same:password'
         ]);

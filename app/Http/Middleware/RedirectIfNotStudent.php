@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Providers\RouteServiceProvider;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -16,8 +17,8 @@ class RedirectIfNotStudent
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (!Auth::guard('student')->check()) {
-            return redirect()->route('student.login');
+        if (Auth::guard('student')->check()) {
+            return redirect(RouteServiceProvider::STUDENT_HOME);
         }
         return $next($request);
     }

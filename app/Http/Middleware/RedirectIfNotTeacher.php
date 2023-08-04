@@ -5,6 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Providers\RouteServiceProvider;
 use Symfony\Component\HttpFoundation\Response;
 
 class RedirectIfNotTeacher
@@ -16,8 +17,9 @@ class RedirectIfNotTeacher
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (!Auth::guard('teacher')->check()) {
-            return redirect()->route('teacher.login');
+        if (Auth::guard('teacher')->check()) {
+            return redirect(RouteServiceProvider::TEACHER_HOME);
+            // return redirect()->route('teacher.login');
         }
         return $next($request);
     }

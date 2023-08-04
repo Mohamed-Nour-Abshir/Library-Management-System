@@ -3,7 +3,7 @@
 <div class="wrapper">
     <div class="container">
         <div class="row">
-            <form class="form-vertical" action="{{ URL::route('student.login.post') }}" method="POST">
+            <form class="form-vertical" action="{{ URL::route('student.login-post') }}" method="POST">
                 @csrf
                 <div class="module-head">
                     <h3 class="text-warning">Login</h3>
@@ -17,7 +17,7 @@
                     @error('email')
                         <span class="text-danger">{{ $message }}</span>
                     @enderror
-                    <input class="span8 form-control mb-2" type="password" placeholder="Password" name="password" autocomplete="false" value="{{ Request::old('email') }}" />
+                    <input class="span8 form-control mb-2" type="password" placeholder="Password" name="password" autocomplete="false" value="{{ Request::old('password') }}" />
                     @error('password')
                         <span class="text-danger">{{ $message }}</span>
                     @enderror

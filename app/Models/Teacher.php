@@ -9,7 +9,7 @@ use Illuminate\Contracts\Auth\Authenticatable;
 class Teacher extends Model implements Authenticatable
 {
     use HasFactory;
-    protected $fillable = array('first_name','last_name','approved','category','id_num','branch','year','email','password');
+    protected $fillable = array('first_name','profile_image','last_name','approved','category','id_num','branch','year','email','password');
 
     
     /**
