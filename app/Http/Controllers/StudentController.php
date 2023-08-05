@@ -269,7 +269,7 @@ class StudentController extends Controller
 	public function getRegistration(){
 		$db_control = new HomeController;
 		return view('public.registration')
-			->with('branch_list', $db_control->branch_list)
+			->with('book_list', $db_control->book_list)
 			->with('student_categories_list', $db_control->student_categories_list);
 	}
 
@@ -280,7 +280,7 @@ class StudentController extends Controller
 				'first'			=> 'required|alpha',
 				'last'			=> 'required|alpha',
 				'rollnumber'	=> 'required|integer',
-				'branch'		=> 'required|between:0,10',
+				'branch'		=> 'required',
 				'year'			=> 'required|integer',
 				'email'			=> 'required|email',
 				'category'		=> 'required|between:0,5'
@@ -293,6 +293,7 @@ class StudentController extends Controller
 				->withInput();   // fills the field with the old inputs what were correct
 
 		} else {
+
 			$student = Student::create(array(
 				'first_name'	=> $request->get('first'),
 				'last_name'		=> $request->get('last'),
@@ -301,11 +302,27 @@ class StudentController extends Controller
 				'branch'		=> $request->get('branch'),
 				'year'			=> $request->get('year'),
 				'email_id'		=> $request->get('email'),
+				
+				
 			));
-
+			// $student = new Student();
+			// $student->first_name	= $request->get('first');
+			// $student->last_name		= $request->get('last');
+			// $student->category		= $request->get('category');
+			// $student->roll_num		= $request->get('rollnumber');
+			// $student->branch		= $request->get('branch');
+			// $student->year			= $request->get('year');
+			// $student->email_id		= $request->get('email');
+			// if(auth()->guard('teacher')->check()){
+			// 	$student->user_type		= 'teacher';
+			// }
+			// else if(auth()->guard('student')->check()){
+			// 	$student->user_type		= 'student';
+			// }
+			// $student->save();
 			if($student){
 				return Redirect::route('student-registration')
-					->with('global', 'Your request has been raised, you will be soon approved!');
+					->with('success', 'Your request has been raised, you will be soon approved!');
 			}
 		}
 	}

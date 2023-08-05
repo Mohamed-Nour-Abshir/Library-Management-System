@@ -93,12 +93,6 @@ Route::group(array('before' => 'guest'), function() {
 		'as' 	=> 'account-create',
 		'uses' 	=> 'AccountController@getCreate'
 	));
-
-	// Student Registeration form 
-	Route::get('/student-registration', array(
-		'as' 	=> 'student-registration',
-		'uses' 	=> 'StudentController@getRegistration'
-	));
     
     // Render search books panel
     Route::get('/book', array(
@@ -258,6 +252,22 @@ Route::group(['middleware' => ['auth:teacher']], function () {
 	));
 	Route::get('/teacher/request-book',[RequestBook::class, 'showRequestBook'])->name('teacher.request-book');
 	Route::post('/teacher/request-book',[RequestBook::class, 'requestBookPost'])->name('teacher.request-book-post');
+
+	// Student Registeration form 
+	Route::get('/teacher/request-books', array(
+		'as' 	=> 'student-registration',
+		'uses' 	=> 'StudentController@getRegistration'
+	));
+
+	Route::post('/teacher/request-books', array(
+		'as' => 'student-registration-post',
+		'uses' => 'StudentController@postRegistration'
+	));	
+	// Render logs panel
+	Route::get('/teacher/currently-issued', array(
+		'as' => 'teacher.currently-issued',
+		'uses' => 'LogController@renderLogs'
+	));
 });
 
 

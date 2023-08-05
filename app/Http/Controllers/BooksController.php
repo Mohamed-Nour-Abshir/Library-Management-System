@@ -97,7 +97,7 @@ class BooksController extends Controller
 		 }
 	 
 		 $db_flag = false;
-		 $user_id = Auth::id();
+		 $user_id = Auth::guard('admin')->user()->id;
 		 $book_title = Books::create([
 			 'title' => $books['title'],
 			 'author' => $books['author'],

@@ -7,7 +7,7 @@
 <div class="content">
     <div class="module">
         <div class="module-head">
-            <h3>Students waiting for their approval to access Library</h3>
+            <h3>Requests waiting for their approval to access their Books</h3>
         </div>
         <div class="module-body">
             <div class="controls">

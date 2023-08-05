@@ -12,7 +12,7 @@
         <div class="module-body">
             <form class="form-horizontal row-fluid">
                 <div class="control-group">
-                    <label class="control-label">Student ID</label>
+                    <label class="control-label">User ID</label>
                     <div class="controls">
                         <input type="number" id="issue_student_id" data-form-field="student-issue-id" placeholder="Enter the student code here" class="span8">
                     </div>

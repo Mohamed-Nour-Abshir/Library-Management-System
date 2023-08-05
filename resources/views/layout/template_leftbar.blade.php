@@ -15,21 +15,7 @@
                         <i class="menu-icon icon-home" style="color: white;"></i>Home
                     </a>
                 </li>
-                {{-- <li>
-                    <a href="{{ URL::route('student-registration') }}">
-                        <i class="menu-icon icon-user" style="color: white;"></i> Student Registration
-                    </a>
-                </li>
-                <li>
-                    <a href="{{ URL::route('students-for-approval') }}">
-                        <i class="menu-icon icon-filter" style="color: white;"></i> All Waiting Students
-                    </a>
-                </li>
-                <li>
-                    <a href="{{ URL::route('registered-students') }}">
-                        <i class="menu-icon icon-group" style="color: white;"></i>All approved Students
-                    </a>
-                </li> --}}
+
                 <li>
                     <a href="{{ URL::route('teachers.info') }}">
                         <i class="menu-icon icon-group" style="color: white;"></i>All Teachers Information
@@ -57,15 +43,21 @@
                         <i class="menu-icon icon-folder-open-alt" style="color: white;"></i>Add Books
                     </a>
                 </li>
-                <li>
-                    <a href="{{ URL::route('settings') }}">
-                        <i class="menu-icon icon-cog" style="color: white;"></i>Add Settings
-                    </a>
-                </li>
-
-                <li>
+    
+                {{-- <li>
                     <a href="{{ URL::route('books.book-requests') }}">
                         <i class="menu-icon icon-list-ul" style="color: white;"></i>View all requested books  
+                    </a>
+                </li> --}}
+
+                <li>
+                    <a href="{{ URL::route('students-for-approval') }}">
+                        <i class="menu-icon icon-filter" style="color: white;"></i> All Waiting Requested Books
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ URL::route('registered-students') }}">
+                        <i class="menu-icon icon-group" style="color: white;"></i>All approved Requests
                     </a>
                 </li>
 
@@ -78,6 +70,12 @@
                 <li>
                     <a href="{{ URL::route('currently-issued') }}">
                         <i class="menu-icon icon-list-ul" style="color: white;"></i>View all currently issued books  
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{{ URL::route('settings') }}">
+                        <i class="menu-icon icon-cog" style="color: white;"></i>Manage Settings
                     </a>
                 </li>
             </ul>
@@ -97,16 +95,21 @@
                 </li>
 
                 <li>
-                    <a href="{{ URL::route('teacher-all-books') }}">
+                    <a href="{{ URL::route('student-registration') }}">
+                        <i class="menu-icon icon-user" style="color: white;"></i> Request Book
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="{{ URL::route('teacher.currently-issued') }}">
                         <i class="menu-icon icon-filter" style="color: white;"></i>My issued books
                     </a>
                 </li>
-
-                <li>
+                {{-- <li>
                     <a href="{{ URL::route('teacher.request-book') }}">
                         <i class="menu-icon icon-folder-open-alt" style="color: white;"></i>Request book
                     </a>
-                </li>
+                </li> --}}
             </ul>
         @endauth
 

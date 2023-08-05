@@ -8,29 +8,29 @@
                 <ul class="nav pull-right">
                     <li class="nav-user dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         @auth('admin')
-                        @if(auth()->user()->profile_image)
-                            <img src="{{ asset('images/profile_images/' . auth()->user()->profile_image) }}" alt="Profile Image" class="nav-avatar">
-                        @else
-                            <img src="{{ asset('images/profile_images/default-user.jpg') }}" class="nav-avatar" />
-                        @endif
-                        @if(auth()->user()->name)
-                            {{ auth()->user()->name }}
-                        @else
-                            Hi
-                        @endif
+                            @if(auth()->user()->profile_image)
+                                <img src="{{ asset('images/profile_images/' . auth()->user()->profile_image) }}" alt="Profile Image" class="nav-avatar">
+                            @else
+                                <img src="{{ asset('images/profile_images/default-user.jpg') }}" class="nav-avatar" />
+                            @endif
+                            @if(auth()->user()->name)
+                                {{ auth()->user()->name }}
+                            @else
+                                Hi
+                            @endif
                         @endauth
 
                         @auth('teacher')
-                        @if(auth()->guard('teacher')->user()->profile_image)
-                            <img src="{{ asset('images/profile_images/' . auth()->guard('teacher')->user()->profile_image) }}" alt="Profile Image" class="nav-avatar">
-                        @else
-                            <img src="{{ asset('images/profile_images/default-user.jpg') }}" class="nav-avatar" />
-                        @endif
-                        @if(auth()->guard('teacher')->user()->first_name)
-                            {{ auth()->guard('teacher')->user()->first_name }}
-                        @else
-                            Hi
-                        @endif
+                            @if(auth()->guard('teacher')->user()->profile_image)
+                                <img src="{{ asset('images/profile_images/' . auth()->guard('teacher')->user()->profile_image) }}" alt="Profile Image" class="nav-avatar">
+                            @else
+                                <img src="{{ asset('images/profile_images/default-user.jpg') }}" class="nav-avatar" />
+                            @endif
+                            @if(auth()->guard('teacher')->user()->first_name)
+                                {{ auth()->guard('teacher')->user()->first_name }}
+                            @else
+                                Hi
+                            @endif
 
                         @endauth
                         
