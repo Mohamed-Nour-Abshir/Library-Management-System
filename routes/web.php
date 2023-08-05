@@ -11,6 +11,10 @@ use App\Http\Controllers\Auth\TeacherLoginController;
 use App\Http\Controllers\Auth\AdminRegisterController;
 use App\Http\Controllers\Auth\StudentRegisterController;
 use App\Http\Controllers\Auth\TeacherRegisterController;
+use App\Http\Controllers\BooksController;
+use App\Http\Controllers\RequestBook;
+use App\Http\Controllers\UsersInformation;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -100,7 +104,7 @@ Route::group(array('before' => 'guest'), function() {
     Route::get('/book', array(
         'as' => 'search-book',
         'uses' => 'BooksController@searchBook'
-    ));    
+    ));	
 	
 });
 
@@ -132,7 +136,7 @@ Route::group(['middleware' => ['auth:admin']] , function() {
 	
 
 	// Render All Books panel
-    Route::get('/all-books', array(
+    Route::get('all-books', array(
         'as' => 'all-books',
         'uses' => 'BooksController@renderAllBooks'
 	));
@@ -207,6 +211,12 @@ Route::group(['middleware' => ['auth:admin']] , function() {
     Route::get('/change-password', [ChangePasswordController::class, 'showForm'])->name('password.change');
     Route::post('/change-password', [ChangePasswordController::class, 'changePassword'])->name('password.update');
 
+	// Teachers Information 
+	Route::get('/teachers-info',[UsersInformation::class,'teacherInformation'])->name('teachers.info');
+	Route::get('/students-info',[UsersInformation::class,'studentInformation'])->name('students.info');
+	// AllBook Requests 
+	Route::get('/admin/all-bookrequests',[RequestBook::class,'renderAllBookRequests'])->name('books.book-requests');
+
 });
 
 //QrCode
@@ -217,17 +227,10 @@ Route::get('qr_code',[QRController::class,'generate']);
 
 
 /////////////////////////////////////////New Code
-Route::group(['middleware' => ['auth:admin']], function () {
-    // Admin-specific routes go here
-	Route::get('/admin/home',array(
-		'as' 	=> 'admin.home',
-		'uses'	=> 'HomeController@home'
-	));	
-});
 
 Route::group(['middleware' => ['auth:student']], function () {
     // Student-specific routes go here
-	Route::get('/student/home',array(
+	Route::get('/home',array(
 		'as' 	=> 'student.home',
 		'uses'	=> 'HomeController@home'
 	));	
@@ -239,14 +242,22 @@ Route::group(['middleware' => ['auth:teacher']], function () {
 		'as' 	=> 'teacher.home',
 		'uses'	=> 'HomeController@home'
 	));	
-		// Admin Edit Profile Routes 
-		Route::get('/teacher/profile', [UserProfileController::class, 'show'])->name('teacher.profile.show');
-		Route::get('/teacher/profile-edit', [UserProfileController::class, 'edit'])->name('teacher.profile.edit');
-		Route::put('/teacher/profile', [UserProfileController::class, 'update'])->name('teacher.profile.update');
-	
-		// New routes for change password
-		Route::get('/teacher/change-password', [ChangePasswordController::class, 'showForm'])->name('teacher.password.change');
-		Route::post('/teacher/change-password', [ChangePasswordController::class, 'changePassword'])->name('teacher.password.update');
+	// Teacher Edit Profile Routes 
+	Route::get('/teacher/profile', [UserProfileController::class, 'show'])->name('teacher.profile.show');
+	Route::get('/teacher/profile-edit', [UserProfileController::class, 'edit'])->name('teacher.profile.edit');
+	Route::put('/teacher/profile', [UserProfileController::class, 'update'])->name('teacher.profile.update');
+
+	// New routes for change password
+	Route::get('/teacher/change-password', [ChangePasswordController::class, 'showForm'])->name('teacher.password.change');
+	Route::post('/teacher/change-password', [ChangePasswordController::class, 'changePassword'])->name('teacher.password.update');
+
+	// Render All Books panel
+    Route::get('/teacher/all-books', array(
+        'as' => 'teacher-all-books',
+        'uses' => 'BooksController@renderAllBooks'
+	));
+	Route::get('/teacher/request-book',[RequestBook::class, 'showRequestBook'])->name('teacher.request-book');
+	Route::post('/teacher/request-book',[RequestBook::class, 'requestBookPost'])->name('teacher.request-book-post');
 });
 
 

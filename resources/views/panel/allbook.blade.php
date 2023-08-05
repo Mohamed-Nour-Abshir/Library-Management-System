@@ -66,7 +66,9 @@
                         <th>Category</th>
                         <th>Available</th>
                         <th>Total</th>
-                        <th>Action</th>
+                        @auth('admin')
+                            <th>Action</th>
+                        @endauth
                     </tr>
                 </thead>
                 <tbody id="all-books">
