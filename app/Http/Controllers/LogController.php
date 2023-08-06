@@ -201,4 +201,51 @@ class LogController extends Controller
     public function renderIssueReturn() {
         return view('panel.issue-return');
     }
+
+	public function renderUsersLogs()
+	{
+
+		$studentEmail = Auth::guard('teacher')->user()->email;
+		$logs = Logs::select('logs.id', 'logs.book_issue_id', 'logs.student_id', 'logs.issued_at', 'logs.return_time')
+        ->where('book_issue_logs.return_time', '=', 0)
+        ->orderBy('book_issue_logs.issued_at', 'DESC')
+        ->join('students', 'students.student_id', '=', 'book_issue_logs.student_id')
+        ->select('book_issue_logs.*', 'students.email_id as student_email')
+		->where('students.email_id', $studentEmail)
+        ->get();
+
+			// dd($logs);
+		
+		// $logs = $logs->get();
+
+		for($i=0; $i<count($logs); $i++){
+	        
+	        $issue_id = $logs[$i]['book_issue_id'];
+	        $student_id = $logs[$i]['student_id'];
+	        
+	        // to get the name of the book from book issue id
+	        $issue = Issue::find($issue_id);
+	        $book_id = $issue->book_id;
+	        $book = Books::find($book_id);
+			$logs[$i]['book_name'] = $book->title;
+
+			// to get the name of the student from student id
+			$student = Student::find($student_id);
+			$logs[$i]['student_name'] = $student->first_name . ' ' . $student->last_name;
+
+			// change issue date and return date in human readable format
+			$logs[$i]['issued_at'] = date('d-M', strtotime($logs[$i]['issued_at']));
+			if ($issue->return_time == 0) {
+				$logs[$i]['return_time'] =  '<p class="color:red">Pending</p>';
+			}else {
+				$logs[$i]['return_time'] = date('d-M', strtotime($logs[$i]['return_time']));
+			}
+
+		}
+
+        // return $logs;
+		return view('panel.users-logs',compact('logs'));
+		
+	}
+	
 }

@@ -101,10 +101,15 @@
                 </li>
                 
                 <li>
-                    <a href="{{ URL::route('teacher.currently-issued') }}">
+                    <a href="{{ URL::route('teacher.my-currently-issued-books') }}">
                         <i class="menu-icon icon-filter" style="color: white;"></i>My issued books
                     </a>
                 </li>
+                {{-- <li>
+                    <a href="{{ URL::route('teacher.currently-issued') }}">
+                        <i class="menu-icon icon-filter" style="color: white;"></i>My issued books
+                    </a>
+                </li> --}}
                 {{-- <li>
                     <a href="{{ URL::route('teacher.request-book') }}">
                         <i class="menu-icon icon-folder-open-alt" style="color: white;"></i>Request book

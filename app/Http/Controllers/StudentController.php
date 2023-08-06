@@ -277,11 +277,11 @@ class StudentController extends Controller
 
 		$validator = $request->validate([
 
-				'first'			=> 'required|alpha',
-				'last'			=> 'required|alpha',
-				'rollnumber'	=> 'required|integer',
+				'first'			=> 'required',
+				'last'			=> 'required',
+				'rollnumber'	=> 'required',
 				'branch'		=> 'required',
-				'year'			=> 'required|integer',
+				'year'			=> 'required',
 				'email'			=> 'required|email',
 				'category'		=> 'required|between:0,5'
 

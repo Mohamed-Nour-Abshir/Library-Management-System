@@ -264,9 +264,9 @@ Route::group(['middleware' => ['auth:teacher']], function () {
 		'uses' => 'StudentController@postRegistration'
 	));	
 	// Render logs panel
-	Route::get('/teacher/currently-issued', array(
-		'as' => 'teacher.currently-issued',
-		'uses' => 'LogController@renderLogs'
+	Route::get('/teacher/my-currently-issued-books', array(
+		'as' => 'teacher.my-currently-issued-books',
+		'uses' => 'LogController@renderUsersLogs'
 	));
 });
 

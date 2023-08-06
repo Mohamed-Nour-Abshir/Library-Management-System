@@ -12,16 +12,16 @@
         <div class="module-body">
             <form class="form-horizontal row-fluid">
                 <div class="control-group">
-                    <label class="control-label">User ID</label>
+                    <label class="control-label">Request ID</label>
                     <div class="controls">
-                        <input type="number" id="issue_student_id" data-form-field="student-issue-id" placeholder="Enter the student code here" class="span8">
+                        <input type="number" id="issue_student_id" data-form-field="student-issue-id" placeholder="Enter the request ID here" class="span8">
                     </div>
                 </div>
 
                 <div class="control-group">
                     <label class="control-label">Book ID</label>
                     <div class="controls">
-                        <input type="number" id="issue_book_id" data-form-field="book-issue-id" placeholder="Enter the book code here" class="span8">
+                        <input type="number" id="issue_book_id" data-form-field="book-issue-id" placeholder="Enter the book ID here" class="span8">
                     </div>
                 </div>
 
