@@ -103,6 +103,7 @@ class BooksController extends Controller
 			 'author' => $books['author'],
 			 'description' => $books['description'],
 			 'category_id' => $books['category_id'],
+			 'book_url' => $books['book_url'],
 			 'added_by' => $user_id,
 			 'image' => $imageName,
 		 ]);

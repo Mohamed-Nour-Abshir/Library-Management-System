@@ -58,6 +58,13 @@
                         <input type="file" id="image" data-form-field="image" accept="image/*" class="span8">
                     </div>
                 </div>
+
+                <div class="control-group">
+                    <label class="control-label">Add Book URL</label>
+                    <div class="controls">
+                        <input type="text" id="book_url" data-form-field="book_url" placeholder="Add Book URL To read the book?" class="span8">
+                    </div>
+                </div>
                 
                 <div class="control-group">
                     <div class="controls">

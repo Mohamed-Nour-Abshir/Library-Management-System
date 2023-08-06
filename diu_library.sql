@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 05, 2023 at 05:52 PM
+-- Generation Time: Aug 06, 2023 at 03:27 PM
 -- Server version: 10.4.27-MariaDB
--- PHP Version: 8.2.0
+-- PHP Version: 8.1.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `libarary_management_db`
+-- Database: `diu_library`
 --
 
 -- --------------------------------------------------------
@@ -35,6 +35,7 @@ CREATE TABLE `books` (
   `category_id` int(10) UNSIGNED NOT NULL,
   `added_by` int(10) UNSIGNED NOT NULL,
   `image` text DEFAULT NULL,
+  `book_url` varchar(1000) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -43,8 +44,8 @@ CREATE TABLE `books` (
 -- Dumping data for table `books`
 --
 
-INSERT INTO `books` (`book_id`, `title`, `author`, `description`, `category_id`, `added_by`, `image`, `created_at`, `updated_at`) VALUES
-(17, 'New Book', 'nmcbzxm', 'asdjkhasjk', 4, 5, '1691237968.png', NULL, NULL);
+INSERT INTO `books` (`book_id`, `title`, `author`, `description`, `category_id`, `added_by`, `image`, `book_url`, `created_at`, `updated_at`) VALUES
+(7, 'gfh', 'dfhfg', 'hfghgf', 1, 1, '1691327783.jpg', 'https://mail.google.com/mail/u/0/#inbox', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -64,11 +65,10 @@ CREATE TABLE `book_categories` (
 --
 
 INSERT INTO `book_categories` (`id`, `category`, `created_at`, `updated_at`) VALUES
-(1, 'Programming', '2023-07-06 04:29:00', '2023-07-06 04:29:00'),
-(2, 'Networking', '2023-07-06 04:29:11', '2023-07-06 04:29:11'),
-(3, 'Database', '2023-07-06 04:29:14', '2023-07-06 04:29:14'),
-(4, 'Data Structure', '2023-07-06 04:29:18', '2023-07-06 04:29:18'),
-(5, 'BBA', '2023-08-05 02:14:57', '2023-08-05 02:14:57');
+(1, 'Data Structure', '2023-08-06 03:53:26', '2023-08-06 03:53:26'),
+(2, 'Programming', '2023-08-06 03:53:29', '2023-08-06 03:53:29'),
+(3, 'Networking', '2023-08-06 03:53:32', '2023-08-06 03:53:32'),
+(4, 'BBA', '2023-08-06 03:53:37', '2023-08-06 03:53:37');
 
 -- --------------------------------------------------------
 
@@ -84,112 +84,6 @@ CREATE TABLE `book_issues` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `book_issues`
---
-
-INSERT INTO `book_issues` (`issue_id`, `book_id`, `available_status`, `added_by`, `created_at`, `updated_at`) VALUES
-(1, 17, 0, 5, NULL, NULL),
-(2, 17, 1, 5, NULL, NULL),
-(3, 17, 1, 5, NULL, NULL),
-(4, 17, 1, 5, NULL, NULL),
-(5, 17, 1, 5, NULL, NULL),
-(6, 17, 1, 5, NULL, NULL),
-(7, 17, 1, 5, NULL, NULL),
-(8, 17, 1, 5, NULL, NULL),
-(9, 17, 1, 5, NULL, NULL),
-(10, 17, 1, 5, NULL, NULL),
-(11, 17, 1, 5, NULL, NULL),
-(12, 17, 1, 5, NULL, NULL),
-(13, 17, 1, 5, NULL, NULL),
-(14, 17, 1, 5, NULL, NULL),
-(15, 17, 1, 5, NULL, NULL),
-(16, 17, 1, 5, NULL, NULL),
-(17, 17, 1, 5, NULL, NULL),
-(18, 17, 1, 5, NULL, NULL),
-(19, 17, 1, 5, NULL, NULL),
-(20, 17, 1, 5, NULL, NULL),
-(21, 17, 1, 5, NULL, NULL),
-(22, 17, 1, 5, NULL, NULL),
-(23, 17, 1, 5, NULL, NULL),
-(24, 17, 1, 5, NULL, NULL),
-(25, 17, 1, 5, NULL, NULL),
-(26, 17, 1, 5, NULL, NULL),
-(27, 17, 1, 5, NULL, NULL),
-(28, 17, 1, 5, NULL, NULL),
-(29, 17, 1, 5, NULL, NULL),
-(30, 17, 1, 5, NULL, NULL),
-(31, 17, 1, 5, NULL, NULL),
-(32, 17, 1, 5, NULL, NULL),
-(33, 17, 1, 5, NULL, NULL),
-(34, 17, 1, 5, NULL, NULL),
-(35, 17, 1, 5, NULL, NULL),
-(36, 17, 1, 5, NULL, NULL),
-(37, 17, 1, 5, NULL, NULL),
-(38, 17, 1, 5, NULL, NULL),
-(39, 17, 1, 5, NULL, NULL),
-(40, 17, 1, 5, NULL, NULL),
-(41, 17, 1, 5, NULL, NULL),
-(42, 17, 1, 5, NULL, NULL),
-(43, 17, 1, 5, NULL, NULL),
-(44, 17, 1, 5, NULL, NULL),
-(45, 17, 1, 5, NULL, NULL),
-(46, 17, 1, 5, NULL, NULL),
-(47, 17, 1, 5, NULL, NULL),
-(48, 17, 1, 5, NULL, NULL),
-(49, 17, 1, 5, NULL, NULL),
-(50, 17, 1, 5, NULL, NULL),
-(51, 17, 1, 5, NULL, NULL),
-(52, 17, 1, 5, NULL, NULL),
-(53, 17, 1, 5, NULL, NULL),
-(54, 17, 1, 5, NULL, NULL),
-(55, 17, 1, 5, NULL, NULL),
-(56, 17, 1, 5, NULL, NULL),
-(57, 17, 1, 5, NULL, NULL),
-(58, 17, 1, 5, NULL, NULL),
-(59, 17, 1, 5, NULL, NULL),
-(60, 17, 1, 5, NULL, NULL),
-(61, 17, 1, 5, NULL, NULL),
-(62, 17, 1, 5, NULL, NULL),
-(63, 17, 1, 5, NULL, NULL),
-(64, 17, 1, 5, NULL, NULL),
-(65, 17, 1, 5, NULL, NULL),
-(66, 17, 1, 5, NULL, NULL),
-(67, 17, 1, 5, NULL, NULL),
-(68, 17, 1, 5, NULL, NULL),
-(69, 17, 1, 5, NULL, NULL),
-(70, 17, 1, 5, NULL, NULL),
-(71, 17, 1, 5, NULL, NULL),
-(72, 17, 1, 5, NULL, NULL),
-(73, 17, 1, 5, NULL, NULL),
-(74, 17, 1, 5, NULL, NULL),
-(75, 17, 1, 5, NULL, NULL),
-(76, 17, 1, 5, NULL, NULL),
-(77, 17, 1, 5, NULL, NULL),
-(78, 17, 1, 5, NULL, NULL),
-(79, 17, 1, 5, NULL, NULL),
-(80, 17, 1, 5, NULL, NULL),
-(81, 17, 1, 5, NULL, NULL),
-(82, 17, 1, 5, NULL, NULL),
-(83, 17, 1, 5, NULL, NULL),
-(84, 17, 1, 5, NULL, NULL),
-(85, 17, 1, 5, NULL, NULL),
-(86, 17, 1, 5, NULL, NULL),
-(87, 17, 1, 5, NULL, NULL),
-(88, 17, 1, 5, NULL, NULL),
-(89, 17, 1, 5, NULL, NULL),
-(90, 17, 1, 5, NULL, NULL),
-(91, 17, 1, 5, NULL, NULL),
-(92, 17, 1, 5, NULL, NULL),
-(93, 17, 1, 5, NULL, NULL),
-(94, 17, 1, 5, NULL, NULL),
-(95, 17, 1, 5, NULL, NULL),
-(96, 17, 1, 5, NULL, NULL),
-(97, 17, 1, 5, NULL, NULL),
-(98, 17, 1, 5, NULL, NULL),
-(99, 17, 1, 5, NULL, NULL),
-(100, 17, 1, 5, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -208,13 +102,6 @@ CREATE TABLE `book_issue_logs` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Dumping data for table `book_issue_logs`
---
-
-INSERT INTO `book_issue_logs` (`id`, `book_issue_id`, `student_id`, `issue_by`, `issued_at`, `return_time`, `created_at`, `updated_at`) VALUES
-(3, 17, 12, 5, '2023-08-05 12:33', '2023-08-05 13:09', NULL, NULL);
-
 -- --------------------------------------------------------
 
 --
@@ -232,13 +119,6 @@ CREATE TABLE `book_requests` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `book_requests`
---
-
-INSERT INTO `book_requests` (`id`, `id_num`, `name`, `email`, `book_name`, `user_type`, `books_issued`, `created_at`, `updated_at`) VALUES
-(5, '89', 'nour', 'user@gmail.com', 'Java', 'teacher', 0, '2023-08-05 03:35:03', '2023-08-05 03:35:03');
 
 -- --------------------------------------------------------
 
@@ -346,13 +226,6 @@ CREATE TABLE `members` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Dumping data for table `members`
---
-
-INSERT INTO `members` (`id`, `first_name`, `last_name`, `approved`, `rejected`, `category`, `roll_num`, `branch`, `year`, `books_issued`, `email`, `password`, `created_at`, `updated_at`) VALUES
-(7, 'jhgjh', 'jhbjh', 0, 0, 1, '78668', 1, 99989, 0, 'student@gmail.com', '$2y$10$DTeC2KzPsmbPScwWiu4rVOwOFAnPsULa6dGwjL8Q92CUronyIxYam', '2023-08-04 04:19:52', '2023-08-04 04:19:52');
-
 -- --------------------------------------------------------
 
 --
@@ -443,15 +316,6 @@ CREATE TABLE `students` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Dumping data for table `students`
---
-
-INSERT INTO `students` (`student_id`, `first_name`, `last_name`, `approved`, `rejected`, `category`, `roll_num`, `branch`, `year`, `books_issued`, `email_id`, `user_type`, `created_at`, `updated_at`) VALUES
-(11, 'nour', 'abshir', 0, 0, 1, '89', 17, 2023, 0, 'user@gmail.com', 'teacher', NULL, NULL),
-(12, 'nour', 'abshir', 1, 0, 1, '89', 17, 898998, 0, 'user@gmail.com', NULL, NULL, NULL),
-(13, 'nour', 'abshir', 0, 0, 1, '89', 17, 898998, 0, 'user@gmail.com', NULL, NULL, NULL);
-
 -- --------------------------------------------------------
 
 --
@@ -498,13 +362,6 @@ CREATE TABLE `teachers` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Dumping data for table `teachers`
---
-
-INSERT INTO `teachers` (`id`, `first_name`, `last_name`, `approved`, `rejected`, `category`, `id_num`, `branch`, `year`, `books_issued`, `email`, `password`, `profile_image`, `created_at`, `updated_at`) VALUES
-(5, 'nour', 'abshir', 0, 0, 1, '89', 1, 898998, 0, 'user@gmail.com', '$2y$10$jUFUNzrDutjan.8eCBriEeWzcyyelYiZOKMCzOzcmsRlJxgliWPq2', '1691174751.png', '2023-08-04 04:18:19', '2023-08-04 13:10:33');
-
 -- --------------------------------------------------------
 
 --
@@ -530,7 +387,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `username`, `email`, `profile_image`, `email_verified_at`, `verification_status`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(5, 'Admin', 'admin@gmail.com', 'admin@gmail.com', '1691175523.jpg', NULL, 0, '$2y$10$MtNlTbBZBicTV1XMNRoFheZuk0IiQ47yD7JScwcB8t2yT46/4l.QG', NULL, '2023-08-04 04:16:21', '2023-08-04 13:11:57');
+(1, 'Admin', 'admin@gmail.com', 'admin@gmail.com', '1691175523.jpg', NULL, 0, '$2y$10$MtNlTbBZBicTV1XMNRoFheZuk0IiQ47yD7JScwcB8t2yT46/4l.QG', NULL, '2023-08-04 04:16:21', '2023-08-04 13:11:57');
 
 --
 -- Indexes for dumped tables
@@ -661,31 +518,31 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `books`
 --
 ALTER TABLE `books`
-  MODIFY `book_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `book_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `book_categories`
 --
 ALTER TABLE `book_categories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `book_issues`
 --
 ALTER TABLE `book_issues`
-  MODIFY `issue_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=101;
+  MODIFY `issue_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `book_issue_logs`
 --
 ALTER TABLE `book_issue_logs`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `book_requests`
 --
 ALTER TABLE `book_requests`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `branches`
@@ -727,7 +584,7 @@ ALTER TABLE `logs`
 -- AUTO_INCREMENT for table `members`
 --
 ALTER TABLE `members`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -745,7 +602,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `students`
 --
 ALTER TABLE `students`
-  MODIFY `student_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `student_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `student_categories`
@@ -757,7 +614,7 @@ ALTER TABLE `student_categories`
 -- AUTO_INCREMENT for table `teachers`
 --
 ALTER TABLE `teachers`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `users`

@@ -206,13 +206,26 @@ class LogController extends Controller
 	{
 
 		$studentEmail = Auth::guard('teacher')->user()->email;
-		$logs = Logs::select('logs.id', 'logs.book_issue_id', 'logs.student_id', 'logs.issued_at', 'logs.return_time')
-        ->where('book_issue_logs.return_time', '=', 0)
-        ->orderBy('book_issue_logs.issued_at', 'DESC')
-        ->join('students', 'students.student_id', '=', 'book_issue_logs.student_id')
-        ->select('book_issue_logs.*', 'students.email_id as student_email')
+		$logs = Logs::select('logs.id', 'logs.book_issue_id', 'logs.student_id', 'logs.issued_at', 'logs.return_time', 'logs.book_url')
+		->where('book_issue_logs.return_time', '=', 0)
+		->orderBy('book_issue_logs.issued_at', 'DESC')
+		->join('students', 'students.student_id', '=', 'book_issue_logs.student_id')
+		->join('book_issues', 'book_issues.issue_id', '=', 'book_issue_logs.book_issue_id')
+		->join('books', 'books.book_id', '=', 'book_issues.book_id')
+		->select('book_issue_logs.*', 'students.email_id as student_email')
+		->select('book_issue_logs.*', 'books.book_url')
 		->where('students.email_id', $studentEmail)
-        ->get();
+		->get();
+	// 	foreach($logs as $log){
+	// 	dd($log['book_url']);
+	// }
+		// $logs = Logs::select('logs.id', 'logs.book_issue_id', 'logs.student_id', 'logs.issued_at', 'logs.return_time')
+        // ->where('book_issue_logs.return_time', '=', 0)
+        // ->orderBy('book_issue_logs.issued_at', 'DESC')
+        // ->join('students', 'students.student_id', '=', 'book_issue_logs.student_id')
+        // ->select('book_issue_logs.*', 'students.email_id as student_email')
+		// ->where('students.email_id', $studentEmail)
+        // ->get();
 
 			// dd($logs);
 		

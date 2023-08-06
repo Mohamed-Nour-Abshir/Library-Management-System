@@ -19,7 +19,8 @@
                             <th>Book Name</th>
                             <th>User Name</th>
                             <th>Issued On</th>
-                            <th>Return Date</th>                        
+                            <th>Return Date</th>
+                            <th>Read Book</th>                        
                         </tr>
                     </thead>
                     <tbody id="issue-logs-table">
@@ -30,6 +31,9 @@
                             <td>{{ $log['student_name'] }}</td>
                             <td>{{ $log['issued_at'] }}</td>
                             <td>{!! $log['return_time'] !!}</td> {{-- Use {!! !!} to render HTML --}}
+                            <td>
+                                <a href="{{ $log['book_url'] }}" class="btn btn-inverse" target="_blank">View</a>
+                            </td>
                         </tr>
                     @endforeach
                        

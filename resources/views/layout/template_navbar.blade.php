@@ -8,13 +8,13 @@
                 <ul class="nav pull-right">
                     <li class="nav-user dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         @auth('admin')
-                            @if(auth()->user()->profile_image)
-                                <img src="{{ asset('images/profile_images/' . auth()->user()->profile_image) }}" alt="Profile Image" class="nav-avatar">
+                            @if(auth()->guard('admin')->user()->profile_image)
+                                <img src="{{ asset('images/profile_images/' . auth()->guard('admin')->user()->profile_image) }}" alt="Profile Image" class="nav-avatar">
                             @else
                                 <img src="{{ asset('images/profile_images/default-user.jpg') }}" class="nav-avatar" />
                             @endif
-                            @if(auth()->user()->name)
-                                {{ auth()->user()->name }}
+                            @if(auth()->guard('admin')->user()->name)
+                                {{ auth()->guard('admin')->user()->name }}
                             @else
                                 Hi
                             @endif

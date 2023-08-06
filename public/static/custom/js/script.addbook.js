@@ -76,6 +76,8 @@ $(document).ready(function(){
         var description = f$('textarea[data-form-field~=description]').val();
         var category_id = f$('select[data-form-field~=category]').val();
         var number = parseInt(f$('input[data-form-field~=number]').val());
+        // var book_url = parseInt(f$('input[data-form-field~=book_url]').val());
+        var book_url = f$('input[data-form-field~=book_url]').val();
         var image = f$('input[data-form-field~=image]').prop('files')[0];
         var auth_user = f$('input[data-form-field~=auth_user]').val();
         var _token = f$('input[data-form-field~=token]').val();
@@ -88,13 +90,14 @@ $(document).ready(function(){
         formData.append('description', description);
         formData.append('category_id', category_id);
         formData.append('number', number);
+        formData.append('book_url', book_url);
         formData.append('image', image);
         formData.append('auth_user', auth_user);
         formData.append('_token', _token);
         
         
         // Validate form data
-        if (title == "" || author == "" || description == "" || number == null || image == undefined) {
+        if (title == "" || author == "" || description == "" || number == null || book_url == "" || image == undefined) {
             module_body.prepend(templates.alert_box({type: 'danger', message: 'Book Details Not Complete'}));
             send_flag = false;
         }
@@ -137,6 +140,7 @@ function clearform(){
     $('#description').val('');
     $('#number').val('');
     $('#category').val('');
+    $('#book_url').val('');
 }
 
 // Handle click events for edit and delete buttons
