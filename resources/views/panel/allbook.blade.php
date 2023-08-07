@@ -41,7 +41,7 @@
 <div class="content">
     <div class="module">
         <div class="module-head">
-            <h3>Books available to Students</h3>
+            <h3>Books available in the librarys</h3>
         </div>
         <div class="module-body">
 <!--             <p>

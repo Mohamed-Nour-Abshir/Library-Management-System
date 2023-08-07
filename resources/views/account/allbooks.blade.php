@@ -38,9 +38,20 @@
                         <li class="nav-item"><a class="nav-link active" href="/">Books</a></li>
                         <li class="nav-item"><a class="nav-link" href="/">About</a></li>
                         <li class="nav-item"><a class="nav-link" href="/">Team</a></li>
-                    </ul>
-                    <ul class="navbar-nav">
-                        <li class="nav-item"><a class="nav-link btn btn-success" data-bs-toggle="modal" href="#loginForm">LIBRARIAN / ADMIN LOG IN</a></li>
+                        <li class="nav-item">
+                            <ul class="ms-5">
+                                <li class="nav-item dropdown dropdown-menu-enddropdown-menu-right">
+                                    <a class="nav-link dropdown-toggle btn btn-success ps-5 pe-5 ms-5" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Login
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" href="{{route('teacher.login')}}">Teacher Login</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="{{route('student.login')}}">Student Login</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>    
                     </ul>
                 </div>
             </div>
