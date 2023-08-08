@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\BookCategories;
 use App\User;
 use Exception;
 use App\Models\Books;
@@ -97,10 +98,18 @@ class AccountController extends Controller
 	}
 
 	public function getSignIn() {
-		$book_lists = Books::select('book_id','title','image','author','description','book_categories.category')
-		->join('book_categories', 'book_categories.id', '=', 'books.category_id')
-		->orderBy('book_id')->get();
-		return view('account.signin',compact('book_lists'));
+		$book_lists = Books::select('book_id', 'title', 'image', 'author', 'description', 'book_categories.category')
+        ->join('book_categories', 'book_categories.id', '=', 'books.category_id')
+        ->orderBy('book_id')
+        ->get();
+
+    $categories = BookCategories::all();
+
+    return view('account.signin', compact('book_lists', 'categories'));
+		// foreach($book_lists as $book_list){
+		// dd($book_list->category);
+		// }
+		// return view('account.signin',['categories'=>$categories, 'book_lists'=>$book_lists]);
 	}
 
 	//Return Admin To Login Page

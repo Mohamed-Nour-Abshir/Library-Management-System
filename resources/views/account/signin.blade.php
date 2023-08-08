@@ -1,11 +1,22 @@
 @extends('account.index')
 
 @section('content')
-    <div class="row">
+<div class="row mb-5 mt-3 carousel-isotope">
+    <div class="col-12 text-center mb-2">
+        <div class="" id="portfolio-flters">
+            <button class="btn btn-primary active" data-filter="*">All Books</button>
+            @foreach ($categories as $book_category)
+                <button class="btn btn-primary" data-filter=".{{$book_category->category}}">{{$book_category->category}}</button>
+            @endforeach
+        </div>
+    </div>
+    <hr>
+</div>
+    <div class="row portfolio-container">
         @foreach ($book_lists as $book_list)
-            <div class="col-lg-4 col-sm-6 mb-4">
+            <div class="col-lg-3 col-sm-6 mb-4 portfolio-item {{$book_list->category}}">
                 <!-- Book item -->
-                <div class="portfolio-item">
+                {{-- <div class="portfolio-item"> --}}
                     <a class="portfolio-link" data-bs-toggle="modal" data-bs-target="#bookModal{{ $book_list->book_id }}" href="#bookModal{{ $book_list->book_id }}">
                         <div class="portfolio-hover">
                             <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
@@ -16,7 +27,7 @@
                         <div class="portfolio-caption-heading">{{ $book_list->title }}</div>
                         <div class="portfolio-caption-subheading text-muted">{{ $book_list->category }}</div>
                     </div>
-                </div>
+                {{-- </div> --}}
             </div>
         @endforeach
     </div>
