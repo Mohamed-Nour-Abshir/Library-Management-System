@@ -30,7 +30,7 @@ student_year = student_year.trim().substring(2,4);
 	<td><%= obj.student_id %></td>
 	<td><%= obj.first_name %></td>
 	<td><%= obj.last_name %></td>
-	<td><%= obj.roll_num %>-<%= obj.year %></td>
+	<td><%= obj.roll_num %>/<%= obj.branch %>/<%= obj.year %></td>
 	<td><%= obj.branch %></td>
 	<td><%= obj.category %></td>
 	<td><%= obj.email_id %></td>

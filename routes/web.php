@@ -222,13 +222,13 @@ Route::get('qr_code',[QRController::class,'generate']);
 
 /////////////////////////////////////////New Code
 
-Route::group(['middleware' => ['auth:student']], function () {
-    // Student-specific routes go here
-	Route::get('/home',array(
-		'as' 	=> 'student.home',
-		'uses'	=> 'HomeController@home'
-	));	
-});
+// Route::group(['middleware' => ['auth:student']], function () {
+//     // Student-specific routes go here
+// 	Route::get('/home',array(
+// 		'as' 	=> 'student.home',
+// 		'uses'	=> 'HomeController@home'
+// 	));	
+// });
 
 Route::group(['middleware' => ['auth:teacher']], function () {
     // Teacher-specific routes go here

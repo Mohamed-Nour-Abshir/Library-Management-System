@@ -7,7 +7,7 @@
 <div class="content">
     <div class="module">
         <div class="module-head">
-            <h3>Requests waiting for their approval to access their Books</h3>
+            <h3>All requests waiting for their approval to access books</h3>
         </div>
         <div class="module-body">
             <div class="controls">
@@ -47,7 +47,7 @@
                         <th>ID</th>
                         <th>First Name</th>
                         <th>Last Name</th>
-                        <th>Roll Number</th>
+                        <th>ID Number</th>
                         <th>Branch</th>
                         <th>Category</th>
                         <th>Approve</th>

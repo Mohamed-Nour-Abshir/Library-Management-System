@@ -235,7 +235,7 @@ class StudentController extends Controller
 			$student = StudentCategories::find($id);
 			$student->delete();
 			if (!$student) {
-				return "School Department Fail to Delete!.";
+				return "Student Category Fail to Delete!.";
 			}else {
 				return redirect(route('settings'));
 			}
@@ -270,6 +270,7 @@ class StudentController extends Controller
 		$db_control = new HomeController;
 		return view('public.registration')
 			->with('book_list', $db_control->book_list)
+			->with('branch_list', $db_control->branch_list)
 			->with('student_categories_list', $db_control->student_categories_list);
 	}
 
@@ -282,8 +283,9 @@ class StudentController extends Controller
 				'rollnumber'	=> 'required',
 				'branch'		=> 'required',
 				'year'			=> 'required',
-				'email'			=> 'required|email',
-				'category'		=> 'required|between:0,5'
+				'email'			=> 'required',
+				'category'		=> 'required',
+				'book_name'		=> 'required',
 
 		]);
 
@@ -293,7 +295,6 @@ class StudentController extends Controller
 				->withInput();   // fills the field with the old inputs what were correct
 
 		} else {
-
 			$student = Student::create(array(
 				'first_name'	=> $request->get('first'),
 				'last_name'		=> $request->get('last'),
@@ -302,27 +303,12 @@ class StudentController extends Controller
 				'branch'		=> $request->get('branch'),
 				'year'			=> $request->get('year'),
 				'email_id'		=> $request->get('email'),
-				
-				
+				'book_name'		=> $request->get('book_name'),
 			));
-			// $student = new Student();
-			// $student->first_name	= $request->get('first');
-			// $student->last_name		= $request->get('last');
-			// $student->category		= $request->get('category');
-			// $student->roll_num		= $request->get('rollnumber');
-			// $student->branch		= $request->get('branch');
-			// $student->year			= $request->get('year');
-			// $student->email_id		= $request->get('email');
-			// if(auth()->guard('teacher')->check()){
-			// 	$student->user_type		= 'teacher';
-			// }
-			// else if(auth()->guard('student')->check()){
-			// 	$student->user_type		= 'student';
-			// }
-			// $student->save();
+
 			if($student){
 				return Redirect::route('student-registration')
-					->with('success', 'Your request has been raised, you will be soon approved!');
+					->with('global', 'Your request has been raised, you will be soon approved!');
 			}
 		}
 	}
@@ -345,9 +331,9 @@ class StudentController extends Controller
 			$student = StudentCategories::create($request->all());
 
 			if (!$student) {
-				return "School Department Fail to Save!.";
+				return "Student Category Fail to Save!.";
 			}else {
-				return "School Department Save Succesfully!.";
+				return "Student Category Save Succesfully!.";
 				// return back();
 			}
 		}elseif ($request->branch) {

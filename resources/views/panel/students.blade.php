@@ -43,7 +43,7 @@
                         <th>ID</th>
                         <th>First Name</th>
                         <th>Last Name</th>
-                        <th>Roll Number</th>
+                        <th>ID Number</th>
                         <th>Branch</th>
                         <th>Category</th>
                         <th>Email ID</th>
