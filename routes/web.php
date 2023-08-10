@@ -144,13 +144,13 @@ Route::group(['middleware' => ['auth:admin']] , function() {
     ));
 
 	// Students
-    Route::get('/registered-students', array(
+    Route::get('/all-approved-requests', array(
         'as' => 'registered-students',
         'uses' => 'StudentController@renderStudents'
     ));
 
     // Render students approval panel
-    Route::get('/students-for-approval', array(
+    Route::get('/requests-for-approval', array(
         'as' => 'students-for-approval',
         'uses' => 'StudentController@renderApprovalStudents'
 	));
