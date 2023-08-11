@@ -78,7 +78,7 @@ Route::group(array('before' => 'guest'), function() {
 		'uses'	=> 'AccountController@login'
 	));
 	Route::get('/', array(
-		'as' 	=> 'account-sign-in',
+		'as' 	=> '/',
 		'uses'	=> 'AccountController@getSignIn'
 	));
 
@@ -224,12 +224,13 @@ Route::get('qr_code',[QRController::class,'generate']);
 
 // Route::group(['middleware' => ['auth:student']], function () {
 //     // Student-specific routes go here
-// 	Route::get('/home',array(
-// 		'as' 	=> 'student.home',
+// 	Route::get('/students/home',array(
+// 		'as' 	=> 'students.home',
 // 		'uses'	=> 'HomeController@home'
 // 	));	
 // });
 
+// Teacher Routes 
 Route::group(['middleware' => ['auth:teacher']], function () {
     // Teacher-specific routes go here
 	Route::get('/teacher/home',array(
@@ -266,6 +267,48 @@ Route::group(['middleware' => ['auth:teacher']], function () {
 	// Render logs panel
 	Route::get('/teacher/my-currently-issued-books', array(
 		'as' => 'teacher.my-currently-issued-books',
+		'uses' => 'LogController@renderUsersLogs'
+	));
+});
+
+
+// Student Routes 
+Route::group(['middleware' => ['auth:student']], function () {
+    // Student-specific routes go here
+	Route::get('/students/home',array(
+		'as' 	=> 'students.home',
+		'uses'	=> 'HomeController@home'
+	));		
+	// Student Edit Profile Routes 
+	Route::get('/student/profile', [UserProfileController::class, 'show'])->name('student.profile.show');
+	Route::get('/student/profile-edit', [UserProfileController::class, 'edit'])->name('student.profile.edit');
+	Route::put('/student/profile', [UserProfileController::class, 'update'])->name('student.profile.update');
+
+	// New routes for change password
+	Route::get('/student/change-password', [ChangePasswordController::class, 'showForm'])->name('student.password.change');
+	Route::post('/student/change-password', [ChangePasswordController::class, 'changePassword'])->name('student.password.update');
+
+	// Render All Books panel
+    Route::get('/student/all-books', array(
+        'as' => 'student-all-books',
+        'uses' => 'BooksController@renderAllBooks'
+	));
+	Route::get('/student/request-book',[RequestBook::class, 'showRequestBook'])->name('student.request-book');
+	Route::post('/student/request-book',[RequestBook::class, 'requestBookPost'])->name('student.request-book-post');
+
+	// Student Registeration form 
+	Route::get('/student/request-books', array(
+		'as' 	=> 'student-registration',
+		'uses' 	=> 'StudentController@getRegistration'
+	));
+
+	Route::post('/student/request-books', array(
+		'as' => 'student-registration-post',
+		'uses' => 'StudentController@postRegistration'
+	));	
+	// Render logs panel
+	Route::get('/student/my-currently-issued-books', array(
+		'as' => 'student.my-currently-issued-books',
 		'uses' => 'LogController@renderUsersLogs'
 	));
 });

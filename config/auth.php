@@ -36,7 +36,7 @@ return [
     */
 
     'guards' => [
-        'web' => [
+        'admin' => [
             'driver' => 'session',
             'provider' => 'users',
         ],
@@ -57,10 +57,10 @@ return [
             'provider' => 'teachers',
         ],
     
-        'admin' => [
-            'driver' => 'session',
-            'provider' => 'admins',
-        ],
+        // 'admin' => [
+        //     'driver' => 'session',
+        //     'provider' => 'admins',
+        // ],
     ],
 
     /*
@@ -101,10 +101,10 @@ return [
             'model' => App\Models\Teacher::class,
         ],
     
-        'admins' => [
-            'driver' => 'eloquent',
-            'model' => App\User::class,
-        ],
+        // 'admins' => [
+        //     'driver' => 'eloquent',
+        //     'model' => App\User::class,
+        // ],
     ],
 
     /*
@@ -124,7 +124,7 @@ return [
 
     'middleware' => [
         // ...
-        'admin' => \App\Http\Middleware\RedirectIfAuthenticated::class,
+        // 'admin' => \App\Http\Middleware\RedirectIfAuthenticated::class,
         'student' => \App\Http\Middleware\RedirectIfNotStudent::class,
         'teacher' => \App\Http\Middleware\RedirectIfNotTeacher::class,
     ],

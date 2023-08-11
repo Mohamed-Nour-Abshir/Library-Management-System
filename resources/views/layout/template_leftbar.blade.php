@@ -105,28 +105,37 @@
                         <i class="menu-icon icon-filter" style="color: white;"></i>My issued books
                     </a>
                 </li>
-                {{-- <li>
-                    <a href="{{ URL::route('teacher.currently-issued') }}">
-                        <i class="menu-icon icon-filter" style="color: white;"></i>My issued books
-                    </a>
-                </li> --}}
-                {{-- <li>
-                    <a href="{{ URL::route('teacher.request-book') }}">
-                        <i class="menu-icon icon-folder-open-alt" style="color: white;"></i>Request book
-                    </a>
-                </li> --}}
             </ul>
         @endauth
 
-        {{-- @auth('student')
+
+        @auth('student')
             <ul class="widget widget-menu unstyled">
                 <li>
-                    <a href="">
+                    <a href="{{route('students.home')}}">
                         <i class="menu-icon icon-home" style="color: white;"></i>Home
                     </a>
                 </li>
+                <li>
+                    <a href="{{ URL::route('student-all-books') }}">
+                        <i class="menu-icon icon-th-list" style="color: white;"></i>All Books in Library
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{{ URL::route('student-registration') }}">
+                        <i class="menu-icon icon-user" style="color: white;"></i> Request Book
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="{{ URL::route('student.my-currently-issued-books') }}">
+                        <i class="menu-icon icon-filter" style="color: white;"></i>My issued books
+                    </a>
+                </li>
             </ul>
-        @endauth --}}
+        @endauth
+
         <ul class="widget widget-menu unstyled">
             <li><a href="{{ URL::route('logout') }}"><i class="menu-icon icon-wrench" style="color: white;"></i>Logout </a></li>
         </ul>

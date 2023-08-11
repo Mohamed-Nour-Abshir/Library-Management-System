@@ -14,10 +14,10 @@ use Illuminate\Support\Facades\Redirect;
 
 class AccountController extends Controller
 {
-	public function __construct()
-    {
-        $this->middleware('guest:admin')->except('logout');
-    }
+	// public function __construct()
+    // {
+    //     $this->middleware('guest:admin')->except('logout');
+    // }
     	### Sign In
 	/* After submitting the sign-in form */
 	protected $redirectTo = RouteServiceProvider::HOME;
