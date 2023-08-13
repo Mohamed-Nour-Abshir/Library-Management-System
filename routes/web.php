@@ -105,7 +105,7 @@ Route::group(array('before' => 'guest'), function() {
 // Main books Controlller left public so that it could be used without logging in too
 Route::resource('/books', 'BooksController');
 
-// Authenticated group 
+// Admin Authenticated group 
 // Route::group(array('before' => 'auth'), function() {
 Route::group(['middleware' => ['auth:admin']] , function() {
 
@@ -217,19 +217,6 @@ Route::group(['middleware' => ['auth:admin']] , function() {
 Route::get('qr_code',[QRController::class,'generate']);
 
 
-
-
-
-/////////////////////////////////////////New Code
-
-// Route::group(['middleware' => ['auth:student']], function () {
-//     // Student-specific routes go here
-// 	Route::get('/students/home',array(
-// 		'as' 	=> 'students.home',
-// 		'uses'	=> 'HomeController@home'
-// 	));	
-// });
-
 // Teacher Routes 
 Route::group(['middleware' => ['auth:teacher']], function () {
     // Teacher-specific routes go here
@@ -280,34 +267,34 @@ Route::group(['middleware' => ['auth:student']], function () {
 		'uses'	=> 'HomeController@home'
 	));		
 	// Student Edit Profile Routes 
-	Route::get('/student/profile', [UserProfileController::class, 'show'])->name('student.profile.show');
-	Route::get('/student/profile-edit', [UserProfileController::class, 'edit'])->name('student.profile.edit');
-	Route::put('/student/profile', [UserProfileController::class, 'update'])->name('student.profile.update');
+	Route::get('/students/profile', [UserProfileController::class, 'show'])->name('students.profile.show');
+	Route::get('/students/profile-edit', [UserProfileController::class, 'edit'])->name('student.profile.edit');
+	Route::put('/students/profile', [UserProfileController::class, 'update'])->name('student.profile.update');
 
 	// New routes for change password
-	Route::get('/student/change-password', [ChangePasswordController::class, 'showForm'])->name('student.password.change');
-	Route::post('/student/change-password', [ChangePasswordController::class, 'changePassword'])->name('student.password.update');
+	Route::get('/students/change-password', [ChangePasswordController::class, 'showForm'])->name('student.password.change');
+	Route::post('/students/change-password', [ChangePasswordController::class, 'changePassword'])->name('student.password.update');
 
 	// Render All Books panel
-    Route::get('/student/all-books', array(
+    Route::get('/students/all-books', array(
         'as' => 'student-all-books',
         'uses' => 'BooksController@renderAllBooks'
 	));
-	Route::get('/student/request-book',[RequestBook::class, 'showRequestBook'])->name('student.request-book');
-	Route::post('/student/request-book',[RequestBook::class, 'requestBookPost'])->name('student.request-book-post');
+	Route::get('/students/request-book',[RequestBook::class, 'showRequestBook'])->name('student.request-book');
+	Route::post('/students/request-book',[RequestBook::class, 'requestBookPost'])->name('student.request-book-post');
 
 	// Student Registeration form 
-	Route::get('/student/request-books', array(
+	Route::get('/students/request-books', array(
 		'as' 	=> 'student-registration',
 		'uses' 	=> 'StudentController@getRegistration'
 	));
 
-	Route::post('/student/request-books', array(
+	Route::post('/students/request-books', array(
 		'as' => 'student-registration-post',
 		'uses' => 'StudentController@postRegistration'
 	));	
 	// Render logs panel
-	Route::get('/student/my-currently-issued-books', array(
+	Route::get('/students/my-currently-issued-books', array(
 		'as' => 'student.my-currently-issued-books',
 		'uses' => 'LogController@renderUsersLogs'
 	));

@@ -33,6 +33,20 @@
                             @endif
 
                         @endauth
+
+                        @auth('student')
+                            @if(auth()->guard('student')->user()->profile_image)
+                                <img src="{{ asset('images/profile_images/' . auth()->guard('student')->user()->profile_image) }}" alt="Profile Image" class="nav-avatar">
+                            @else
+                                <img src="{{ asset('images/profile_images/default-user.jpg') }}" class="nav-avatar" />
+                            @endif
+                            @if(auth()->guard('student')->user()->first_name)
+                                {{ auth()->guard('student')->user()->first_name }}
+                            @else
+                                Hi
+                            @endif
+
+                        @endauth
                         
                         <b class="caret"></b></a>
                         @auth('admin')
@@ -53,15 +67,16 @@
                                 <li><a href="{{ URL::route('logout') }}">Logout</a></li>
                             </ul>
                         @endauth
-                        {{-- @auth('student')
+
+                        @auth('student')
                             <ul class="dropdown-menu">
-                                <li><a href="{{route('profile.show')}}">Profile</a></li>
+                                <li><a href="{{route('students.profile.show')}}">Profile</a></li>
                                 <li class="divider"></li>
-                                <li><a href="{{route('password.change')}}">Change Password</a></li>
+                                <li><a href="{{route('student.password.change')}}">Change Password</a></li>
                                 <li class="divider"></li>
                                 <li><a href="{{ URL::route('logout') }}">Logout</a></li>
                             </ul>
-                        @endauth --}}
+                        @endauth
                     </li>
                 </ul>
             </div>

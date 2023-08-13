@@ -40,6 +40,8 @@
                     </div>
                 </div>
             @endauth
+
+
             @auth('teacher')
                 <div class="module">
                     <div class="module-head">
@@ -61,6 +63,30 @@
                     </div>
                 </div>
             @endauth
+
+            @auth('student')
+                <div class="module">
+                    <div class="module-head">
+                        <h1>{{$student->first_name}}'s Profile</h1>
+                    </div>
+                    <div class="module-body">
+                        @if(session('success'))
+                            <div class="alert alert-success">{{ session('success') }}</div>
+                        @endif
+                        @if($student->profile_image)
+                            <img src="{{ asset('images/profile_images/' . $student->profile_image) }}" alt="Profile Image" style="width: 200px; height:200px;">
+                        @else
+                            <img src="{{ asset('images/profile_images/default-user.jpg') }}" style="width: 200px; height:200px;" />
+                        @endif
+                        <p>Name: {{ $student->first_name }}</p>
+                        <p>Email: {{ $student->email }}</p>
+
+                        <a href="{{ route('student.profile.edit') }}" class="btn btn-primary">Edit Profile</a>
+                    </div>
+                </div>
+            @endauth
+
+
         </div>
 
     </div>
