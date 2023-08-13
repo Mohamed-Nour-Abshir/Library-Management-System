@@ -95,7 +95,7 @@
                 </li>
 
                 <li>
-                    <a href="{{ URL::route('student-registration') }}">
+                    <a href="{{ URL::route('teacher-registration') }}">
                         <i class="menu-icon icon-user" style="color: white;"></i> Request Book
                     </a>
                 </li>

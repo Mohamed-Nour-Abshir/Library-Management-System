@@ -11,6 +11,7 @@ use App\Models\Student;
 use Illuminate\Http\Request;
 use App\Models\StudentCategories;
 use App\Http\Controllers\HomeController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 
 class StudentController extends Controller
@@ -306,9 +307,18 @@ class StudentController extends Controller
 				'book_name'		=> $request->get('book_name'),
 			));
 
-			if($student){
-				return Redirect::route('student-registration')
-					->with('global', 'Your request has been raised, you will be soon approved!');
+			if(Auth::guard('teacher')->check()){
+				if($student){
+					return Redirect::route('teacher-registration')
+						->with('global', 'Your request has been raised, you will be soon approved!');
+				}
+			}
+
+			if(Auth::guard('student')->check()){
+				if($student){
+					return Redirect::route('student-registration')
+						->with('global', 'Your request has been raised, you will be soon approved!');
+				}
 			}
 		}
 	}

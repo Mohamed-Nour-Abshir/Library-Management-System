@@ -134,7 +134,7 @@ class UserProfileController extends Controller
                 $student->profile_image = $imageName;
             }
             $student->save();
-            return redirect()->route('student.profile.show')->with('success', 'Profile updated successfully.');
+            return redirect()->route('students.profile.show')->with('success', 'Profile updated successfully.');
         }
        
     }

@@ -243,12 +243,12 @@ Route::group(['middleware' => ['auth:teacher']], function () {
 
 	// Student Registeration form 
 	Route::get('/teacher/request-books', array(
-		'as' 	=> 'student-registration',
+		'as' 	=> 'teacher-registration',
 		'uses' 	=> 'StudentController@getRegistration'
 	));
 
 	Route::post('/teacher/request-books', array(
-		'as' => 'student-registration-post',
+		'as' => 'teacher-registration-post',
 		'uses' => 'StudentController@postRegistration'
 	));	
 	// Render logs panel
