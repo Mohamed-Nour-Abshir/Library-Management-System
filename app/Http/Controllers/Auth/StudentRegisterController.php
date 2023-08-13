@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Validator;
 class StudentRegisterController extends Controller
 {
     // protected $redirectTo = '/student/dashboard';
-    protected $redirectTo = RouteServiceProvider::TEACHER_HOME;
+    protected $redirectTo = RouteServiceProvider::STUDENT_HOME;
 
     public function __construct()
     {
@@ -41,6 +41,8 @@ class StudentRegisterController extends Controller
             'rollnumber' => ['required', 'numeric'],
             'branch' => ['required', 'numeric'],
             'year' => ['required', 'numeric'],
+            'phone_no' => ['required', 'numeric'],
+            'address' => 'required',
             'category' => ['required', 'numeric'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:members'],
             'password' => ['required','min:8'],
@@ -56,6 +58,8 @@ class StudentRegisterController extends Controller
             'roll_num' => $data['rollnumber'],
             'branch' => $data['branch'],
             'year' => $data['year'],
+            'phone_no' => $data['phone_no'],
+            'address' => $data['address'],
             'category' => $data['category'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),

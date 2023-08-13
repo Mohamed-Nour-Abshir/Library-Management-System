@@ -23,7 +23,7 @@
                     </div>
                     <div class="control-group">
                         <div class="controls row-fluid">
-                            <input class="span4 form-control mt-2" type="number" placeholder="Roll number" name="rollnumber" value="{{ Request::old('rollnumber') }}" /> 
+                            <input class="span4 form-control mt-2" type="number" placeholder="Registration No" name="rollnumber" value="{{ Request::old('rollnumber') }}" /> 
                             @if($errors->has('rollnumber'))
                                 <span class="text-danger mt-0" style="font-size: 15px; text-align:left;">{{ $errors->first('rollnumber')}}</span>
                             @endif 								
@@ -54,6 +54,16 @@
                             @if($errors->has('category'))
                                 <span class="text-danger mt-0" style="font-size: 15px; text-align:left;">{{ $errors->first('category')}}</span>
                             @endif
+
+                            <input class="span4 form-control mt-2" type="number" placeholder="Phone No" name="phone_no" value="{{ Request::old('phone_no') }}" /> 
+                            @if($errors->has('phone_no'))
+                                <span class="text-danger mt-0" style="font-size: 15px; text-align:left;">{{ $errors->first('phone_no')}}</span>
+                            @endif 
+                            
+                            <textarea class="span4 form-control mt-2" placeholder="Student Address" name="address" value="{{ Request::old('address') }}" > Student Address</textarea>
+                            @if($errors->has('address'))
+                                <span class="text-danger mt-0" style="font-size: 15px; text-align:left;">{{ $errors->first('address')}}</span>
+                            @endif 
                         </div>
                     </div>
                     <p class="text-warning mt-4 mb-0">Login Info</p>

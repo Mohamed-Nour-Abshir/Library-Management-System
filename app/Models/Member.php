@@ -10,7 +10,7 @@ class Member extends Model implements Authenticatable
 // class Member extends Authenticatable
 {
     use HasFactory;
-    protected $fillable = array('first_name','last_name','approved','category','roll_num','branch','year','email','password');
+    protected $fillable = array('first_name','last_name','approved','category','roll_num','branch','year','phone_no','address','email','password');
 
     
     /**

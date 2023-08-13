@@ -26,7 +26,13 @@
                             <input class="span4 form-control mt-2" type="number" placeholder="Teacher ID number" name="id_num" value="{{ Request::old('id_num') }}" /> 
                             @if($errors->has('id_num'))
                                 <span class="text-danger mt-0" style="font-size: 15px; text-align:left;">{{ $errors->first('id_num')}}</span>
-                            @endif 								
+                            @endif 
+
+                            <input class="span4 form-control mt-2" type="text" placeholder="Teacher Designation/Title" name="title" value="{{ Request::old('title') }}" /> 
+                            @if($errors->has('title'))
+                                <span class="text-danger mt-0" style="font-size: 15px; text-align:left;">{{ $errors->first('title')}}</span>
+                            @endif 	
+
                             <select class="span4 form-control mt-2" style="margin-bottom: 0;" name="branch">
                                 <option value="0">select branch</option>
                                 @foreach($branch_list as $branch)
@@ -54,6 +60,21 @@
                             @if($errors->has('category'))
                                 <span class="text-danger mt-0" style="font-size: 15px; text-align:left;">{{ $errors->first('category')}}</span>
                             @endif
+
+
+                            <input class="span4 form-control mt-2" type="number" placeholder="Phone No" name="phone_no" value="{{ Request::old('phone_no') }}" /> 
+                            @if($errors->has('phone_no'))
+                                <span class="text-danger mt-0" style="font-size: 15px; text-align:left;">{{ $errors->first('phone_no')}}</span>
+                            @endif 
+                            
+                            <textarea class="span4 form-control mt-2" placeholder="Student Address" name="address" value="{{ Request::old('address') }}" > Student Address</textarea>
+                            @if($errors->has('address'))
+                                <span class="text-danger mt-0" style="font-size: 15px; text-align:left;">{{ $errors->first('address')}}</span>
+                            @endif 
+
+
+
+
                         </div>
                     </div>
                     <p class="text-warning mt-4 mb-0">Login Info</p>
