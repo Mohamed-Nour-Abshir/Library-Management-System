@@ -27,16 +27,18 @@
 	</button>
 </form> --}}
 
-@foreach ($book_list as $book)
+
 	<tr>
-		<td>{{$book->book_id}}</td>
-		<td>{{$book->title}}</td>
-		<td>{{$book->author}}</td>
-		<td>{{$book->description}}</td>
+		<td><%= obj.book_id %></td>
+		<td><%= obj.title %></td>
+		<td><%= obj.auther %></td>
+		<td><%= obj.description %></td>
 		<td><%= obj.category %></td>
 		<td><a class="btn btn-success"><%= obj.avaliable %></a></td>
 		<td><a class="btn btn-dark"><%= obj.total_books %></a></td>
 		@auth('admin')
+			@foreach ($book_list as $book)
+			@endforeach
 			<td>
 				<button class="btn btn-sm btn-primary btn-edit" data-book-id="<%= obj.book_id %>"><i class="icon-edit text-dark"></i></button>
 				<button type="submit" class="btn btn-sm btn-danger btn-delete" data-bs-toggle="modal" data-bs-target="#deleteBook{{$book->book_id}}">
@@ -68,11 +70,11 @@
 				</div>
 
 
-			</td>
+			</td>			
 		@endauth
 	 </tr>
 
-@endforeach
+
 
 
 
