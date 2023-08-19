@@ -9,22 +9,47 @@
             </button>
         </div>
 
-        <div class="btn-box-row row-fluid">
-            <button class="btn-box big span4 homepage-form-box" id="findbookbox">
-                <i class="icon-list" ></i>
-                <b>Find Book</b>
-            </button>
+        @auth('admin')
+            <div class="btn-box-row row-fluid">
+                <button class="btn-box big span4 homepage-form-box" id="findbookbox">
+                    <i class="icon-list" ></i>
+                    <b>Find Book</b>
+                </button>
 
-            <button class="btn-box big span4 homepage-form-box" id="findissuebox">
-                <i class="icon-book"></i>
-                <b>Find Issue Book </b>
-            </button>
+                <button class="btn-box big span4 homepage-form-box" id="findissuebox">
+                    <i class="icon-book"></i>
+                    <b>Find Issue Book </b>
+                </button>
 
-            <button class="btn-box big span4 homepage-form-box" id="findstudentbox">
-                <i class="icon-user"></i>
-                <b>Find Student</b>
-            </button>
-        </div>
+                <button class="btn-box big span4 homepage-form-box" id="findstudentbox">
+                    <i class="icon-user"></i>
+                    <b>Find Student</b>
+                </button>
+            </div>
+        @endauth
+
+        @auth('teacher')
+            <div class="btn-box-row row-fluid">
+                <button class="btn-box big span4 homepage-form-box" id="findbookbox">
+                    <i class="icon-list" ></i>
+                    <b>Find Book</b>
+                </button>
+
+                <button class="btn-box big span4 homepage-form-box" id="findstudentbox">
+                    <i class="icon-user"></i>
+                    <b>Find Student</b>
+                </button>
+            </div>
+        @endauth
+
+        @auth('student')
+            <div class="btn-box-row row-fluid">
+                <button class="btn-box big span4 homepage-form-box" id="findbookbox">
+                    <i class="icon-list" ></i>
+                    <b>Find Book</b>
+                </button>
+            </div>
+        @endauth
 
         <div class="content">
             <div class="module" style="display: none;">

@@ -23,7 +23,7 @@
                             <th>Log ID</th>
                             <th>Book Issue ID</th>
                             <th>Book Name</th>
-                            <th>User ID</th>
+                            <th>Request ID</th>
                             <th>User Name</th>
                             <th>Issued On</th>
                             <th>Return Date</th>                        
@@ -47,7 +47,7 @@
                             <th>Log ID</th>
                             <th>Book Issue ID</th>
                             <th>Book Name</th>
-                            <th>User ID</th>
+                            <th>Request ID</th>
                             <th>User Name</th>
                             <th>Issued On</th>
                             <th>Return Date</th>                        

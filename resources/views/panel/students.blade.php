@@ -45,7 +45,7 @@
                         <th>Last Name</th>
                         <th>ID Number</th>
                         <th>Branch</th>
-                        <th>Category</th>
+                        <th>Department</th>
                         <th>Email ID</th>
                         <th>Books Issued</th>
                     </tr>

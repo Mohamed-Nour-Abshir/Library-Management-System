@@ -49,7 +49,7 @@
                         <th>Last Name</th>
                         <th>ID Number</th>
                         <th>Branch</th>
-                        <th>Category</th>
+                        <th>Department</th>
                         <th>Approve</th>
                     </tr>
                 </thead>

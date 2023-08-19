@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 13, 2023 at 02:03 PM
+-- Generation Time: Aug 19, 2023 at 11:50 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.1.12
 
@@ -45,9 +45,9 @@ CREATE TABLE `books` (
 --
 
 INSERT INTO `books` (`book_id`, `title`, `author`, `description`, `category_id`, `added_by`, `image`, `book_url`, `created_at`, `updated_at`) VALUES
-(1, 'Computer Networks', 'shariful Islam', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 3, 1, '1691919826.jpg', 'https://www.lipsum.com/', NULL, NULL),
-(2, 'Computer Fundamentals', 'Nour', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 1, 1, '1691920027.jpg', 'https://www.tutorialspoint.com/computer_fundamentals/index.htm', NULL, NULL),
-(3, 'Business Communications', 'Abdihafid', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 2, 1, '1691920160.jpg', 'https://en.wikipedia.org/wiki/Business_communication', NULL, NULL);
+(1, 'Computer Networks', 'Nour', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 3, 1, '1692433259.jpg', 'https://www.lipsum.com/', NULL, NULL),
+(2, 'Business Communications', 'Ahmed', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 2, 1, '1692433395.jpg', 'https://www.lipsum.com/', NULL, NULL),
+(3, 'Computer Fundementals', 'Abdul basid', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 1, 1, '1692433480.jpg', 'https://www.kaizenitbd.com/', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -93,7 +93,7 @@ CREATE TABLE `book_issues` (
 
 INSERT INTO `book_issues` (`issue_id`, `book_id`, `available_status`, `added_by`, `created_at`, `updated_at`) VALUES
 (1, 1, 1, 1, NULL, NULL),
-(2, 1, 0, 1, NULL, NULL),
+(2, 1, 1, 1, NULL, NULL),
 (3, 1, 1, 1, NULL, NULL),
 (4, 1, 1, 1, NULL, NULL),
 (5, 1, 1, 1, NULL, NULL),
@@ -192,7 +192,7 @@ INSERT INTO `book_issues` (`issue_id`, `book_id`, `available_status`, `added_by`
 (98, 1, 1, 1, NULL, NULL),
 (99, 1, 1, 1, NULL, NULL),
 (100, 1, 1, 1, NULL, NULL),
-(101, 2, 1, 1, NULL, NULL),
+(101, 2, 0, 1, NULL, NULL),
 (102, 2, 1, 1, NULL, NULL),
 (103, 2, 1, 1, NULL, NULL),
 (104, 2, 1, 1, NULL, NULL),
@@ -392,7 +392,7 @@ INSERT INTO `book_issues` (`issue_id`, `book_id`, `available_status`, `added_by`
 (298, 2, 1, 1, NULL, NULL),
 (299, 2, 1, 1, NULL, NULL),
 (300, 2, 1, 1, NULL, NULL),
-(301, 3, 1, 1, NULL, NULL),
+(301, 3, 0, 1, NULL, NULL),
 (302, 3, 1, 1, NULL, NULL),
 (303, 3, 1, 1, NULL, NULL),
 (304, 3, 1, 1, NULL, NULL),
@@ -441,7 +441,257 @@ INSERT INTO `book_issues` (`issue_id`, `book_id`, `available_status`, `added_by`
 (347, 3, 1, 1, NULL, NULL),
 (348, 3, 1, 1, NULL, NULL),
 (349, 3, 1, 1, NULL, NULL),
-(350, 3, 1, 1, NULL, NULL);
+(350, 3, 1, 1, NULL, NULL),
+(351, 3, 1, 1, NULL, NULL),
+(352, 3, 1, 1, NULL, NULL),
+(353, 3, 1, 1, NULL, NULL),
+(354, 3, 1, 1, NULL, NULL),
+(355, 3, 1, 1, NULL, NULL),
+(356, 3, 1, 1, NULL, NULL),
+(357, 3, 1, 1, NULL, NULL),
+(358, 3, 1, 1, NULL, NULL),
+(359, 3, 1, 1, NULL, NULL),
+(360, 3, 1, 1, NULL, NULL),
+(361, 3, 1, 1, NULL, NULL),
+(362, 3, 1, 1, NULL, NULL),
+(363, 3, 1, 1, NULL, NULL),
+(364, 3, 1, 1, NULL, NULL),
+(365, 3, 1, 1, NULL, NULL),
+(366, 3, 1, 1, NULL, NULL),
+(367, 3, 1, 1, NULL, NULL),
+(368, 3, 1, 1, NULL, NULL),
+(369, 3, 1, 1, NULL, NULL),
+(370, 3, 1, 1, NULL, NULL),
+(371, 3, 1, 1, NULL, NULL),
+(372, 3, 1, 1, NULL, NULL),
+(373, 3, 1, 1, NULL, NULL),
+(374, 3, 1, 1, NULL, NULL),
+(375, 3, 1, 1, NULL, NULL),
+(376, 3, 1, 1, NULL, NULL),
+(377, 3, 1, 1, NULL, NULL),
+(378, 3, 1, 1, NULL, NULL),
+(379, 3, 1, 1, NULL, NULL),
+(380, 3, 1, 1, NULL, NULL),
+(381, 3, 1, 1, NULL, NULL),
+(382, 3, 1, 1, NULL, NULL),
+(383, 3, 1, 1, NULL, NULL),
+(384, 3, 1, 1, NULL, NULL),
+(385, 3, 1, 1, NULL, NULL),
+(386, 3, 1, 1, NULL, NULL),
+(387, 3, 1, 1, NULL, NULL),
+(388, 3, 1, 1, NULL, NULL),
+(389, 3, 1, 1, NULL, NULL),
+(390, 3, 1, 1, NULL, NULL),
+(391, 3, 1, 1, NULL, NULL),
+(392, 3, 1, 1, NULL, NULL),
+(393, 3, 1, 1, NULL, NULL),
+(394, 3, 1, 1, NULL, NULL),
+(395, 3, 1, 1, NULL, NULL),
+(396, 3, 1, 1, NULL, NULL),
+(397, 3, 1, 1, NULL, NULL),
+(398, 3, 1, 1, NULL, NULL),
+(399, 3, 1, 1, NULL, NULL),
+(400, 3, 1, 1, NULL, NULL),
+(401, 3, 1, 1, NULL, NULL),
+(402, 3, 1, 1, NULL, NULL),
+(403, 3, 1, 1, NULL, NULL),
+(404, 3, 1, 1, NULL, NULL),
+(405, 3, 1, 1, NULL, NULL),
+(406, 3, 1, 1, NULL, NULL),
+(407, 3, 1, 1, NULL, NULL),
+(408, 3, 1, 1, NULL, NULL),
+(409, 3, 1, 1, NULL, NULL),
+(410, 3, 1, 1, NULL, NULL),
+(411, 3, 1, 1, NULL, NULL),
+(412, 3, 1, 1, NULL, NULL),
+(413, 3, 1, 1, NULL, NULL),
+(414, 3, 1, 1, NULL, NULL),
+(415, 3, 1, 1, NULL, NULL),
+(416, 3, 1, 1, NULL, NULL),
+(417, 3, 1, 1, NULL, NULL),
+(418, 3, 1, 1, NULL, NULL),
+(419, 3, 1, 1, NULL, NULL),
+(420, 3, 1, 1, NULL, NULL),
+(421, 3, 1, 1, NULL, NULL),
+(422, 3, 1, 1, NULL, NULL),
+(423, 3, 1, 1, NULL, NULL),
+(424, 3, 1, 1, NULL, NULL),
+(425, 3, 1, 1, NULL, NULL),
+(426, 3, 1, 1, NULL, NULL),
+(427, 3, 1, 1, NULL, NULL),
+(428, 3, 1, 1, NULL, NULL),
+(429, 3, 1, 1, NULL, NULL),
+(430, 3, 1, 1, NULL, NULL),
+(431, 3, 1, 1, NULL, NULL),
+(432, 3, 1, 1, NULL, NULL),
+(433, 3, 1, 1, NULL, NULL),
+(434, 3, 1, 1, NULL, NULL),
+(435, 3, 1, 1, NULL, NULL),
+(436, 3, 1, 1, NULL, NULL),
+(437, 3, 1, 1, NULL, NULL),
+(438, 3, 1, 1, NULL, NULL),
+(439, 3, 1, 1, NULL, NULL),
+(440, 3, 1, 1, NULL, NULL),
+(441, 3, 1, 1, NULL, NULL),
+(442, 3, 1, 1, NULL, NULL),
+(443, 3, 1, 1, NULL, NULL),
+(444, 3, 1, 1, NULL, NULL),
+(445, 3, 1, 1, NULL, NULL),
+(446, 3, 1, 1, NULL, NULL),
+(447, 3, 1, 1, NULL, NULL),
+(448, 3, 1, 1, NULL, NULL),
+(449, 3, 1, 1, NULL, NULL),
+(450, 3, 1, 1, NULL, NULL),
+(451, 3, 1, 1, NULL, NULL),
+(452, 3, 1, 1, NULL, NULL),
+(453, 3, 1, 1, NULL, NULL),
+(454, 3, 1, 1, NULL, NULL),
+(455, 3, 1, 1, NULL, NULL),
+(456, 3, 1, 1, NULL, NULL),
+(457, 3, 1, 1, NULL, NULL),
+(458, 3, 1, 1, NULL, NULL),
+(459, 3, 1, 1, NULL, NULL),
+(460, 3, 1, 1, NULL, NULL),
+(461, 3, 1, 1, NULL, NULL),
+(462, 3, 1, 1, NULL, NULL),
+(463, 3, 1, 1, NULL, NULL),
+(464, 3, 1, 1, NULL, NULL),
+(465, 3, 1, 1, NULL, NULL),
+(466, 3, 1, 1, NULL, NULL),
+(467, 3, 1, 1, NULL, NULL),
+(468, 3, 1, 1, NULL, NULL),
+(469, 3, 1, 1, NULL, NULL),
+(470, 3, 1, 1, NULL, NULL),
+(471, 3, 1, 1, NULL, NULL),
+(472, 3, 1, 1, NULL, NULL),
+(473, 3, 1, 1, NULL, NULL),
+(474, 3, 1, 1, NULL, NULL),
+(475, 3, 1, 1, NULL, NULL),
+(476, 3, 1, 1, NULL, NULL),
+(477, 3, 1, 1, NULL, NULL),
+(478, 3, 1, 1, NULL, NULL),
+(479, 3, 1, 1, NULL, NULL),
+(480, 3, 1, 1, NULL, NULL),
+(481, 3, 1, 1, NULL, NULL),
+(482, 3, 1, 1, NULL, NULL),
+(483, 3, 1, 1, NULL, NULL),
+(484, 3, 1, 1, NULL, NULL),
+(485, 3, 1, 1, NULL, NULL),
+(486, 3, 1, 1, NULL, NULL),
+(487, 3, 1, 1, NULL, NULL),
+(488, 3, 1, 1, NULL, NULL),
+(489, 3, 1, 1, NULL, NULL),
+(490, 3, 1, 1, NULL, NULL),
+(491, 3, 1, 1, NULL, NULL),
+(492, 3, 1, 1, NULL, NULL),
+(493, 3, 1, 1, NULL, NULL),
+(494, 3, 1, 1, NULL, NULL),
+(495, 3, 1, 1, NULL, NULL),
+(496, 3, 1, 1, NULL, NULL),
+(497, 3, 1, 1, NULL, NULL),
+(498, 3, 1, 1, NULL, NULL),
+(499, 3, 1, 1, NULL, NULL),
+(500, 3, 1, 1, NULL, NULL),
+(501, 3, 1, 1, NULL, NULL),
+(502, 3, 1, 1, NULL, NULL),
+(503, 3, 1, 1, NULL, NULL),
+(504, 3, 1, 1, NULL, NULL),
+(505, 3, 1, 1, NULL, NULL),
+(506, 3, 1, 1, NULL, NULL),
+(507, 3, 1, 1, NULL, NULL),
+(508, 3, 1, 1, NULL, NULL),
+(509, 3, 1, 1, NULL, NULL),
+(510, 3, 1, 1, NULL, NULL),
+(511, 3, 1, 1, NULL, NULL),
+(512, 3, 1, 1, NULL, NULL),
+(513, 3, 1, 1, NULL, NULL),
+(514, 3, 1, 1, NULL, NULL),
+(515, 3, 1, 1, NULL, NULL),
+(516, 3, 1, 1, NULL, NULL),
+(517, 3, 1, 1, NULL, NULL),
+(518, 3, 1, 1, NULL, NULL),
+(519, 3, 1, 1, NULL, NULL),
+(520, 3, 1, 1, NULL, NULL),
+(521, 3, 1, 1, NULL, NULL),
+(522, 3, 1, 1, NULL, NULL),
+(523, 3, 1, 1, NULL, NULL),
+(524, 3, 1, 1, NULL, NULL),
+(525, 3, 1, 1, NULL, NULL),
+(526, 3, 1, 1, NULL, NULL),
+(527, 3, 1, 1, NULL, NULL),
+(528, 3, 1, 1, NULL, NULL),
+(529, 3, 1, 1, NULL, NULL),
+(530, 3, 1, 1, NULL, NULL),
+(531, 3, 1, 1, NULL, NULL),
+(532, 3, 1, 1, NULL, NULL),
+(533, 3, 1, 1, NULL, NULL),
+(534, 3, 1, 1, NULL, NULL),
+(535, 3, 1, 1, NULL, NULL),
+(536, 3, 1, 1, NULL, NULL),
+(537, 3, 1, 1, NULL, NULL),
+(538, 3, 1, 1, NULL, NULL),
+(539, 3, 1, 1, NULL, NULL),
+(540, 3, 1, 1, NULL, NULL),
+(541, 3, 1, 1, NULL, NULL),
+(542, 3, 1, 1, NULL, NULL),
+(543, 3, 1, 1, NULL, NULL),
+(544, 3, 1, 1, NULL, NULL),
+(545, 3, 1, 1, NULL, NULL),
+(546, 3, 1, 1, NULL, NULL),
+(547, 3, 1, 1, NULL, NULL),
+(548, 3, 1, 1, NULL, NULL),
+(549, 3, 1, 1, NULL, NULL),
+(550, 3, 1, 1, NULL, NULL),
+(551, 3, 1, 1, NULL, NULL),
+(552, 3, 1, 1, NULL, NULL),
+(553, 3, 1, 1, NULL, NULL),
+(554, 3, 1, 1, NULL, NULL),
+(555, 3, 1, 1, NULL, NULL),
+(556, 3, 1, 1, NULL, NULL),
+(557, 3, 1, 1, NULL, NULL),
+(558, 3, 1, 1, NULL, NULL),
+(559, 3, 1, 1, NULL, NULL),
+(560, 3, 1, 1, NULL, NULL),
+(561, 3, 1, 1, NULL, NULL),
+(562, 3, 1, 1, NULL, NULL),
+(563, 3, 1, 1, NULL, NULL),
+(564, 3, 1, 1, NULL, NULL),
+(565, 3, 1, 1, NULL, NULL),
+(566, 3, 1, 1, NULL, NULL),
+(567, 3, 1, 1, NULL, NULL),
+(568, 3, 1, 1, NULL, NULL),
+(569, 3, 1, 1, NULL, NULL),
+(570, 3, 1, 1, NULL, NULL),
+(571, 3, 1, 1, NULL, NULL),
+(572, 3, 1, 1, NULL, NULL),
+(573, 3, 1, 1, NULL, NULL),
+(574, 3, 1, 1, NULL, NULL),
+(575, 3, 1, 1, NULL, NULL),
+(576, 3, 1, 1, NULL, NULL),
+(577, 3, 1, 1, NULL, NULL),
+(578, 3, 1, 1, NULL, NULL),
+(579, 3, 1, 1, NULL, NULL),
+(580, 3, 1, 1, NULL, NULL),
+(581, 3, 1, 1, NULL, NULL),
+(582, 3, 1, 1, NULL, NULL),
+(583, 3, 1, 1, NULL, NULL),
+(584, 3, 1, 1, NULL, NULL),
+(585, 3, 1, 1, NULL, NULL),
+(586, 3, 1, 1, NULL, NULL),
+(587, 3, 1, 1, NULL, NULL),
+(588, 3, 1, 1, NULL, NULL),
+(589, 3, 1, 1, NULL, NULL),
+(590, 3, 1, 1, NULL, NULL),
+(591, 3, 1, 1, NULL, NULL),
+(592, 3, 1, 1, NULL, NULL),
+(593, 3, 1, 1, NULL, NULL),
+(594, 3, 1, 1, NULL, NULL),
+(595, 3, 1, 1, NULL, NULL),
+(596, 3, 1, 1, NULL, NULL),
+(597, 3, 1, 1, NULL, NULL),
+(598, 3, 1, 1, NULL, NULL),
+(599, 3, 1, 1, NULL, NULL),
+(600, 3, 1, 1, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -465,8 +715,8 @@ CREATE TABLE `book_issue_logs` (
 --
 
 INSERT INTO `book_issue_logs` (`id`, `book_issue_id`, `student_id`, `issue_by`, `issued_at`, `return_time`, `created_at`, `updated_at`) VALUES
-(1, 1, 1, 1, '2023-08-13 09:56', '2023-08-13 09:57', NULL, NULL),
-(2, 1, 2, 1, '2023-08-13 09:57', '2023-08-13 09:58', NULL, NULL);
+(1, 3, 1, 1, '2023-08-19 08:28', '0', NULL, NULL),
+(2, 2, 2, 1, '2023-08-19 09:15', '0', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -504,7 +754,8 @@ CREATE TABLE `branches` (
 --
 
 INSERT INTO `branches` (`id`, `branch`, `created_at`, `updated_at`) VALUES
-(1, 'Green Road', '2023-07-06 05:05:49', '2023-07-06 05:05:49');
+(1, 'Green Road', '2023-07-06 05:05:49', '2023-07-06 05:05:49'),
+(3, 'Satarkul badda', '2023-08-19 03:39:18', '2023-08-19 03:39:18');
 
 -- --------------------------------------------------------
 
@@ -599,8 +850,7 @@ CREATE TABLE `members` (
 --
 
 INSERT INTO `members` (`id`, `first_name`, `last_name`, `approved`, `rejected`, `category`, `roll_num`, `branch`, `year`, `phone_no`, `address`, `books_issued`, `email`, `password`, `created_at`, `updated_at`) VALUES
-(1, 'Mohamed', 'Abshir', 0, 0, 1, '29', 1, 2023, NULL, NULL, 0, 'nourabshir@gmail.com', '$2y$10$OgfqMzOHJGJKkVJ66AiNlOKUIK/qWZzI63cju.tsFokk3Qt3JUL.i', '2023-08-13 02:53:15', '2023-08-13 02:53:15'),
-(2, 'Abdi', 'hafid', 0, 0, 1, '108858', 1, 2023, '0173094327798', 'satrakul, Dhaka', 0, 'abdihafid@gmail.com', '$2y$10$mFX5ZoJaUuTtp/.dQ03fROPsL6E7Fgq1NMhJ/iNV0ezZ6fl1FBCyu', '2023-08-13 05:49:48', '2023-08-13 05:49:48');
+(1, 'Abdi', 'hafid', 0, 0, 1, '1088782', 1, 2023, '017297432432', 'satrakul', 0, 'abdihafid@gmail.com', '$2y$10$hFl94Vr0gtjoxkIyv3eZyu.6eDf7b/x1DkhwdK22c//n./9tL8GTq', '2023-08-19 03:14:29', '2023-08-19 03:14:29');
 
 -- --------------------------------------------------------
 
@@ -698,8 +948,8 @@ CREATE TABLE `students` (
 --
 
 INSERT INTO `students` (`student_id`, `first_name`, `last_name`, `approved`, `rejected`, `category`, `roll_num`, `branch`, `year`, `books_issued`, `book_name`, `email_id`, `user_type`, `created_at`, `updated_at`) VALUES
-(1, 'Shariful', 'Islam', 1, 0, 1, '37897', 1, 2023, 0, 'Computer Networks', 'sharifulislam@gmail.com', NULL, NULL, NULL),
-(2, 'Mohamed', 'Abshir', 1, 0, 1, '29', 1, 2023, 0, 'Computer Networks', 'nourabshir@gmail.com', NULL, NULL, NULL);
+(1, 'Habibullah', 'Belali', 1, 0, 1, '243245', 1, 2023, 1, 'Computer Fundementals', 'habibulah@gmail.com', NULL, NULL, NULL),
+(2, 'Abdi', 'hafid', 1, 0, 1, '1088782', 1, 2023, 1, 'Business Communications', 'abdihafid@gmail.com', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -720,8 +970,10 @@ CREATE TABLE `student_categories` (
 --
 
 INSERT INTO `student_categories` (`cat_id`, `category`, `max_allowed`, `created_at`, `updated_at`) VALUES
-(1, 'CSE', 10, NULL, NULL),
-(2, 'BBA', 200, NULL, NULL);
+(1, 'CSE', 100, NULL, NULL),
+(2, 'BBA', 200, NULL, NULL),
+(4, 'EEE', 100, NULL, NULL),
+(5, 'English', 100, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -755,8 +1007,7 @@ CREATE TABLE `teachers` (
 --
 
 INSERT INTO `teachers` (`id`, `first_name`, `last_name`, `approved`, `rejected`, `category`, `id_num`, `branch`, `year`, `books_issued`, `email`, `phone_no`, `address`, `title`, `password`, `profile_image`, `created_at`, `updated_at`) VALUES
-(1, 'Shariful', 'Islam', 0, 0, 1, '37897', 1, 2023, 0, 'sharifulislam@gmail.com', NULL, NULL, NULL, '$2y$10$1BTl1ytCwRrHVl3RqxdHm..aIfohm8weiRQTo7ZyRFG84svxGr/Uy', NULL, '2023-08-13 02:56:34', '2023-08-13 02:56:34'),
-(2, 'Habibullah', 'Belali', 0, 0, 1, '112323434', 1, 2023, 0, 'habibulah@gmail.com', '0179324994', 'Panthapath, Dhaka', 'Assistant Professor', '$2y$10$JTlfoUkmwEbgHQY3d2COkOeKonmKW.xOwzxNL.JW3//krj4ofhJ9W', NULL, '2023-08-13 06:00:59', '2023-08-13 06:00:59');
+(1, 'Habibullah', 'Belali', 0, 0, 1, '243245', 1, 2023, 0, 'habibulah@gmail.com', '012873323', 'Panthapath', 'Assitant Professor', '$2y$10$vrAF1hz.N4LpjGEve/EvTejy49LXNYj5GIQ9MaOQ5dNpHB49vMFXO', NULL, '2023-08-19 02:27:38', '2023-08-19 02:27:38');
 
 -- --------------------------------------------------------
 
@@ -783,7 +1034,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `username`, `email`, `profile_image`, `email_verified_at`, `verification_status`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Admin', 'admin@gmail.com', 'admin@gmail.com', '1691175523.jpg', NULL, 0, '$2y$10$MtNlTbBZBicTV1XMNRoFheZuk0IiQ47yD7JScwcB8t2yT46/4l.QG', NULL, '2023-08-04 04:16:21', '2023-08-04 13:11:57');
+(1, 'Admin', 'admin@gmail.com', 'admin@gmail.com', '1692437431.jpg', NULL, 0, '$2y$10$MtNlTbBZBicTV1XMNRoFheZuk0IiQ47yD7JScwcB8t2yT46/4l.QG', NULL, '2023-08-04 04:16:21', '2023-08-19 03:30:31');
 
 --
 -- Indexes for dumped tables
@@ -926,7 +1177,7 @@ ALTER TABLE `book_categories`
 -- AUTO_INCREMENT for table `book_issues`
 --
 ALTER TABLE `book_issues`
-  MODIFY `issue_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=351;
+  MODIFY `issue_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=601;
 
 --
 -- AUTO_INCREMENT for table `book_issue_logs`
@@ -944,7 +1195,7 @@ ALTER TABLE `book_requests`
 -- AUTO_INCREMENT for table `branches`
 --
 ALTER TABLE `branches`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `categories`
@@ -980,7 +1231,7 @@ ALTER TABLE `logs`
 -- AUTO_INCREMENT for table `members`
 --
 ALTER TABLE `members`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -1004,13 +1255,13 @@ ALTER TABLE `students`
 -- AUTO_INCREMENT for table `student_categories`
 --
 ALTER TABLE `student_categories`
-  MODIFY `cat_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `cat_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `teachers`
 --
 ALTER TABLE `teachers`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `users`

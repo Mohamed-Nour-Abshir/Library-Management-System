@@ -29,7 +29,7 @@ student_year = student_year;
 	<td><%= obj.student_id %></td>
 	<td><%= obj.first_name %></td>
 	<td><%= obj.last_name %></td>
-	<td><%= obj.roll_num %>/<%= obj.branch %>/<%= student_year %></td>
+	<td><%= obj.roll_num %></td>
 	<td><%= obj.branch %></td>
 	<td><%= obj.category %></td>
 	<td>

@@ -33,7 +33,7 @@ class LogController extends Controller
 	        // to get the name of the book from book issue id
 	        $issue = Issue::find($issue_id);
 	        $book_id = $issue->book_id;
-	        $book = Books::find($book_id);
+	        $book = Books::find($issue_id);
 			$logs[$i]['book_name'] = $book->title;
 
 			// to get the name of the student from student id
@@ -207,28 +207,28 @@ class LogController extends Controller
 
 		if(Auth::guard('teacher')->check()){
 			$teacherEmail = Auth::guard('teacher')->user()->email;
-			$logs = Logs::select('logs.id', 'logs.book_issue_id', 'logs.student_id', 'logs.issued_at', 'logs.return_time', 'logs.book_url')
+			$logs = Logs::select('logs.id', 'logs.book_issue_id', 'logs.student_id', 'logs.issued_at', 'logs.return_time', 'logs.book_url','logs.title')
 			->where('book_issue_logs.return_time', '=', 0)
 			->orderBy('book_issue_logs.issued_at', 'DESC')
 			->join('students', 'students.student_id', '=', 'book_issue_logs.student_id')
 			->join('book_issues', 'book_issues.issue_id', '=', 'book_issue_logs.book_issue_id')
-			->join('books', 'books.book_id', '=', 'book_issues.book_id')
+			->join('books', 'books.book_id', '=', 'book_issue_logs.book_issue_id')
 			->select('book_issue_logs.*', 'students.email_id as student_email')
-			->select('book_issue_logs.*', 'books.book_url')
+			->select('book_issue_logs.*', 'books.book_url', 'books.title')
 			->where('students.email_id', $teacherEmail)
 			->get();
 		}
 
 		if(Auth::guard('student')->check()){
 			$studentEmail = Auth::guard('student')->user()->email;
-			$logs = Logs::select('logs.id', 'logs.book_issue_id', 'logs.student_id', 'logs.issued_at', 'logs.return_time', 'logs.book_url')
+			$logs = Logs::select('logs.id', 'logs.book_issue_id', 'logs.student_id', 'logs.issued_at', 'logs.return_time', 'logs.book_url','logs.title')
 			->where('book_issue_logs.return_time', '=', 0)
 			->orderBy('book_issue_logs.issued_at', 'DESC')
 			->join('students', 'students.student_id', '=', 'book_issue_logs.student_id')
 			->join('book_issues', 'book_issues.issue_id', '=', 'book_issue_logs.book_issue_id')
-			->join('books', 'books.book_id', '=', 'book_issues.book_id')
+			->join('books', 'books.book_id', '=', 'book_issue_logs.book_issue_id')
 			->select('book_issue_logs.*', 'students.email_id as student_email')
-			->select('book_issue_logs.*', 'books.book_url')
+			->select('book_issue_logs.*', 'books.book_url', 'books.title')
 			->where('students.email_id', $studentEmail)
 			->get();
 		}
