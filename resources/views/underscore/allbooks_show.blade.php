@@ -31,7 +31,7 @@
 	<tr>
 		<td><%= obj.book_id %></td>
 		<td><%= obj.title %></td>
-		<td><%= obj.auther %></td>
+		<td><%= obj.author %></td>
 		<td><%= obj.description %></td>
 		<td><%= obj.category %></td>
 		<td><a class="btn btn-success"><%= obj.avaliable %></a></td>

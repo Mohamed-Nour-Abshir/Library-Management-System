@@ -10,7 +10,7 @@ function loadResults(){
         success : function(data){
             console.log(data);
             if($.isEmptyObject(data)){
-                table.html('<tr><td colspan="99">No Logs</td></tr>');
+                table.html('<tr><td colspan="99">No Data</td></tr>');
             } else {
                 table.html('');
                 // console.log(JSON.stringify(data));
@@ -128,8 +128,8 @@ function ClearIssueBook(){
 $(document).ready(function(){
     $(document).on("click","#issuebook",function(){
         var selectedForm = $(this).parents('form'),
-            studentID = selectedForm.find("input[data-form-field~=student-issue-id]").val(),
-            bookID = selectedForm.find("input[data-form-field~=book-issue-id]").val();
+            studentID = selectedForm.find("select[data-form-field~=student-issue-id]").val(),
+            bookID = selectedForm.find("select[data-form-field~=book-issue-id]").val();
         
         if(studentID == "" || bookID == ""){
             selectedForm.prepend(templates.alert_box( {type: 'danger', message: "Invalid Data"} ));
@@ -140,7 +140,7 @@ $(document).ready(function(){
 
     $(document).on("click","#returnbook",function(){
         var selectedForm = $(this).parents('form'),
-            bookID = selectedForm.find("input[data-form-field~=book-issue-id]").val();
+            bookID = selectedForm.find("select[data-form-field~=book-issue-id]").val();
         
         if(bookID == ""){
             selectedForm.prepend(templates.alert_box( {type: 'danger', message: "Invalid Data"} ));
@@ -149,7 +149,46 @@ $(document).ready(function(){
         }
     });
     
-    loadResults();
+    
+
+
+
+
+
+    
+    
+// Get references to the select elements
+const studentSelect = document.getElementById('issue_student_id');
+const bookSelect = document.getElementById('book-issue-id');
+
+// Add an event listener to the student select element
+studentSelect.addEventListener('change', function () {
+    // Get the selected student's book_id and book_name from the data attributes
+    const selectedStudent = studentSelect.options[studentSelect.selectedIndex];
+    const bookId = selectedStudent.getAttribute('data-book-id');
+    const bookName = selectedStudent.getAttribute('data-book-name');
+    // const bookName = selectedStudent.textContent;
+
+    // Clear the current options in the book select
+    bookSelect.innerHTML = '';
+
+    // If a student is selected, add an option to the book select
+    if (bookId && bookName) {
+        const option = document.createElement('option');
+        option.value = bookId;
+        option.textContent = bookName;
+        bookSelect.appendChild(option);
+    } else {
+        // If no student is selected, add an empty option
+        const option = document.createElement('option');
+        option.value = '';
+        bookSelect.appendChild(option);
+    }
+
+    // Enable or disable the book select based on whether a student is selected
+    bookSelect.disabled = !bookId;
+});
+loadResults();
 
 });
 
