@@ -254,11 +254,17 @@ class LogController extends Controller
 				$student = Student::find($student_id);
 				$student->books_issued = $student->books_issued - 1;
 				$student->save();
+				// Check book availability and issue the book
+				$bookID = $log_change->book_issue_id;
+				$book = Issue::where('book_id', $bookID)->where('available_status', '=', 0)->first();
+				$book_issue_update = Issue::where('book_id', $bookID)->where('issue_id', $book->issue_id)->first();
+				$book_issue_update->available_status = 1;
+				$book_issue_update->save();
 
 				// change issue availability status
-				$issue = Issue::find($issue_id);
-				$issue->available_status = 1;
-				$issue->save();
+				// $issue = Issue::find($issue_id);
+				// $issue->available_status = 1;
+				// $issue->save();
 				
 			});
 
