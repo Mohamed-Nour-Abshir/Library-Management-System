@@ -162,6 +162,7 @@ const studentSelect = document.getElementById('issue_student_id');
 const bookSelect = document.getElementById('book-issue-id');
 
 // Add an event listener to the student select element
+if (studentSelect && bookSelect) {
 studentSelect.addEventListener('change', function () {
     // Get the selected student's book_id and book_name from the data attributes
     const selectedStudent = studentSelect.options[studentSelect.selectedIndex];
@@ -188,7 +189,11 @@ studentSelect.addEventListener('change', function () {
     // Enable or disable the book select based on whether a student is selected
     bookSelect.disabled = !bookId;
 });
-loadResults();
+}
 
+
+loadResults();
 });
+
+
 

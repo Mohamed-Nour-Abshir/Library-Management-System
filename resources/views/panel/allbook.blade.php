@@ -44,11 +44,6 @@
             <h3>Books available in the librarys</h3>
         </div>
         <div class="module-body">
-<!--             <p>
-                <strong>Combined</strong>
-                -
-                <small>table class="table table-striped table-bordered table-condensed"</small>
-            </p> -->
             <div class="controls">
                 <select class="" id="category_fill">
                     @foreach($categories_list as $category)
