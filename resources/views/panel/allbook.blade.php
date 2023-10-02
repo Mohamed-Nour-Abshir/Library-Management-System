@@ -46,7 +46,7 @@
                 <form class="form-horizontal row-fluid" id="findbookform">
                     <div class="input-group">
                         <input type="text" class="form-control w-50" placeholder="Search book">
-                        <a class="btn btn-success homepage-form-submit">Search</a>
+                        <a class="btn homepage-form-submit" style="background-color:  #00cc00; color:#fff"><i class="icon-search"></i> Search</a>
                     </div>
                </form>               
             </div>

@@ -8,7 +8,11 @@
     <div class="module">
         <div class="module-head">
             @auth('admin')
-                <h3>Currently Issued Books</h3>
+                
+                <div class="d-flex justify-content-between">
+                    <h3>Currently Issued Books</h3> 
+                </div>
+                
             @endauth
             @auth('teacher')
                 <h3>My Issued Books</h3>
@@ -17,6 +21,21 @@
         <div class="module-body">
             <div class="row-fluid">
                 @auth('admin')
+                <div class="module">
+                    <div class="module-body">
+                        <form class="form-horizontal row-fluid" id="findstudentform">
+                            <div class="control-group">
+                                <label class="control-label">Enter Book Request ID</label>
+                                <div class="controls">
+                                    <input type="text" placeholder="" class="span9">
+                                    <a class="btn homepage-form-submit" style="background-color:  #00cc00; color:#fff"><i class="icon-search"></i> Search</a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="module-body" id="module-body-results"></div>
+                </div>
+
                 <table class="table table-striped table-bordered table-condensed">
                     <thead>
                         <tr>
@@ -71,8 +90,15 @@
 @stop
 
 @section('custom_bottom_script')
+<script type="text/javascript" src="{{asset('static/custom/js/script.mainpage.js') }}"></script>
 <script type="text/javascript" src="{{ asset('static/custom/js/script.logs.js') }}"></script>
 <script type="text/template" id="all_logs_display">
     @include('underscore.all_logs_display')
+</script>
+<script type="text/template" id="search_student">
+    @include('underscore.search_student')
+</script>
+<script type="text/template" id="approvalstudents_show">
+    @include('underscore.approvalstudents_show')
 </script>
 @stop

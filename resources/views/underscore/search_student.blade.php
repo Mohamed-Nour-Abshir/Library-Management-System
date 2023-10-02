@@ -19,16 +19,16 @@
 <%
     }
 %>
-    <dt>Student ID</dt>
+    <dt>Request ID</dt>
     <dd><%= obj.student_id %></dd>
     <dt>Name of Student</dt>
     <dd><%= obj.first_name %> <%= obj.last_name %></dd>
-    <dt>Student Category</dt>
+    <dt>Student Department</dt>
     <dd><%= obj.category %></dd>
     <dt>Email ID</dt>
     <dd><%= obj.email_id %></dd>
     <dt>Roll Number</dt>
-    <dd><%= obj.roll_num %>/<%= obj.branch %>/<%= obj.year %></dd>
+    <dd><%= obj.roll_num %></dd>
 
     <%
         if(!flag){
