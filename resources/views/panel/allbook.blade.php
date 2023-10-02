@@ -41,7 +41,16 @@
 <div class="content">
     <div class="module">
         <div class="module-head">
-            <h3>Books available in the librarys</h3>
+            <div class="d-flex justify-content-between">
+                <h3>Books available in the librarys</h3>
+                <form class="form-horizontal row-fluid" id="findbookform">
+                    <div class="input-group">
+                        <input type="text" class="form-control w-50" placeholder="Search book">
+                        <a class="btn btn-success homepage-form-submit">Search</a>
+                    </div>
+               </form>               
+            </div>
+            
         </div>
         <div class="module-body">
             <div class="controls">
@@ -51,7 +60,20 @@
                     @endforeach
                 </select>
             </div>
-            <table class="table table-striped table-bordered table-condensed">
+            <table class="table table-striped table-bordered table-condensed" style="display: none;">
+                <thead>
+                    <tr>
+                        <th>Book ID</th>
+                        <th>Book Title</th>
+                        <th>Author</th>
+                        <th>Description</th>
+                        <th>Category</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody id="book-results"></tbody>
+            </table>
+            <table class="table table-striped table-bordered table-condensed" id="afterSearch">
                 <thead>
                     <tr>
                         <th>ID</th>
@@ -67,9 +89,13 @@
                     </tr>
                 </thead>
                 <tbody id="all-books">
+                    @if(count($book_list) > 0)
                     <tr class="text-center">
                         <td colspan="99"> <i class="icon-spinner icon-spin"></i></td>
                     </tr>
+                    @else
+                    <p class="text-center p-3 bg-primary">No Books Found!</p>
+                    @endif
                 </tbody>
             </table>
         </div>
@@ -79,11 +105,15 @@
 @stop
 
 @section('custom_bottom_script')
+<script type="text/javascript" src="{{asset('static/custom/js/script.mainpage.js') }}"></script>
 <script type="text/javascript">
     var categories_list = $('#categories_list').val();
 </script>
 <script type="text/javascript" src="{{asset('static/custom/js/script.addbook.js') }}"></script>
 <script type="text/template" id="allbooks_show">
     @include('underscore.allbooks_show')
+</script>
+<script type="text/template" id="search_book">
+    @include('underscore.search_book')
 </script>
 @stop

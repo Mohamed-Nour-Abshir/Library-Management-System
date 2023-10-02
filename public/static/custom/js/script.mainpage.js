@@ -7,6 +7,9 @@ function loadSearchedBooks(string){
 
 
     table_parent_div.show();
+    if(table_parent_div){
+    var afterSearch = $("#afterSearch").hide()
+    }
 
     $.ajax({
         url : url,
@@ -112,7 +115,7 @@ $(document).ready(function(){
 
         switch(mode){
             case 'book' :
-                var search_query = form.find('textarea').val();
+                var search_query = form.find('input').val();
                 if(search_query != '')
                     loadSearchedBooks(search_query);
                 break;

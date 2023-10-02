@@ -31,9 +31,9 @@ class BooksController extends Controller
 	 *
 	 * @return Response
 	 */
-	public function index()
+	public function index(Request $request)
 	{
-
+		$searchTerm = $request->input('search');
 		$book_list = Books::select('book_id','title','author','description','book_categories.category')
 		->join('book_categories', 'book_categories.id', '=', 'books.category_id')
 			->orderBy('book_id')->get();
